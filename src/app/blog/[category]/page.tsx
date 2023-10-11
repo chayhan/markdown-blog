@@ -3,7 +3,7 @@ import ArticleHeader from "@/components/layout/ArticleHeader";
 import ContentBox from "@/components/layout/ContentBox";
 import Title from "@/components/layout/Title";
 import BoardList from "@/components/BoardList";
-import { getCategory } from "@/modules/ContentParser";
+import { getCategory, categoryData } from "@/modules/ContentParser";
 
 import { Metadata } from "next";
 import styles from "./page.module.css";
@@ -36,4 +36,10 @@ export default function Page({params}:{params:{category: string }}) {
       </Article>
     </main>
   </>
+}
+
+export async function generateStaticParams() {
+  return categoryData.map((item) => {
+    return {category:item.name}
+  })
 }

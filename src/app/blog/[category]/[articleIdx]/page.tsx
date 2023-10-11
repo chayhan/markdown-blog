@@ -3,7 +3,7 @@ import ArticleHeader from "@/components/layout/ArticleHeader";
 import ContentBox from "@/components/layout/ContentBox";
 import Title from "@/components/layout/Title";
 import Markdown from "react-markdown";
-import { MarkdownDocument, getCategory, getDocument } from "@/modules/ContentParser";
+import { MarkdownDocument, categoryData, getCategory, getDocument } from "@/modules/ContentParser";
 
 import { Metadata } from "next";
 import styles from "./page.module.css";
@@ -97,4 +97,17 @@ async function fetchDocument(params: { category: string; articleIdx: number }) {
     content,
     imageSizes
   }
+}
+
+export async function generateStaticParams() {
+  const paramData:{category:string, articleIdx:string}[] = [];
+  categoryData.forEach((item) => {
+    for(let i=0; i<item.length; ++i) {
+      paramData.push({
+        category:item.name,
+        articleIdx:i.toString()
+      })
+    }
+  })
+  return paramData;
 }
