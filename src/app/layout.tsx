@@ -16,6 +16,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <meta http-equiv='cache-control' content='no-cache'/> 
+        <meta http-equiv='expires' content='0'/> 
+        <meta http-equiv='pragma' content='no-cache'/>
+      </head>
       <body className={font.className}>
         <div id="body-wrapper">
           <div className="nav-container">
