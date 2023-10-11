@@ -1,0 +1,21 @@
+.itemWrapper {
+    margin-top:66px;
+    display:flex;
+    flex-direction: column;
+    gap:36px;
+}
+
+.itemTitle {
+    font-size: 21px;
+    margin-bottom:8px;
+}
+
+.itemTitle * {
+    color:var(--primary-white);
+    text-decoration: none;
+}
+
+.itemDate {
+    color:var(--secondary-gray);
+    font-size: 16px;
+}

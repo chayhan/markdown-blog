@@ -1,0 +1,6 @@
+.main {
+    line-height: 0;
+    color:var(--primary-white);
+    font-style: "normal";
+    font-weight: 400;
+}
