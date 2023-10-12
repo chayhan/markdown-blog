@@ -7,8 +7,9 @@ const repository = `markdown-blog`;
 const nextConfig = {
   output : "export",
   images: { unoptimized: true },
-  assetPrefix: process.env.NODE_ENV === "production" ? `/${repository}/` : "",
+  assertPrefix : process.env.NODE_ENV === "production" ? `/${repository}/` : "",
   distDir:"docs",
+  trailingSlash:true,
 }
 
 module.exports = nextConfig
