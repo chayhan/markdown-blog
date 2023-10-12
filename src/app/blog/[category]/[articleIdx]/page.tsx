@@ -13,6 +13,8 @@ import path from "node:path";
 
 import sizeOf from "image-size";
 
+import { prefix } from "@/config";
+
 export const metadata: Metadata = {};
 
 export default async function Page({ params }: { params: { category: string; articleIdx: number } }) {
@@ -44,7 +46,7 @@ export default async function Page({ params }: { params: { category: string; art
                   
                   src = src ?? "";
                   const {width, height} = imageSizes[path.join(src) ?? ""];
-                  src = `/${documentMetadata.path.replace(/\\/g, "/").replace('public/', "")}/${src}`;
+                  src = `${prefix}/${documentMetadata.path.replace(/\\/g, "/").replace('public/', "")}/${src}`;
                   console.log("FINAL SRC :: ", src);
                   return (
                     <Image

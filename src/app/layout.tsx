@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Noto_Sans_KR } from "next/font/google";
-import GithubIcon from '../../assets/github-icon.png';
-import FavIcon from '../../assets/favicon-128.png';
+
+import { prefix } from "@/config";
 
 const font = Noto_Sans_KR({ subsets: ["latin"] });
 
@@ -16,22 +16,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <meta http-equiv='cache-control' content='no-cache'/> 
-        <meta http-equiv='expires' content='0'/> 
-        <meta http-equiv='pragma' content='no-cache'/>
-      </head>
       <body className={font.className}>
         <div id="body-wrapper">
           <div className="nav-container">
             <div className="nav">
               <div className="menu">
                 <Link className="logo" href="/">
-                  <Image src={FavIcon} alt='favicon' width={32} height={32} style={{borderRadius:6}}></Image>
+                  <Image src={`${prefix}/favicon-128.png`} alt='favicon' width={32} height={32} style={{borderRadius:6}}></Image>
                   johann blue
                 </Link>
                 <a href="https://github.com/johannblue">
-                  <Image src={GithubIcon} alt="github" width={32} height={32}/>
+                  <Image src={`${prefix}/github-icon.png`} alt="github" width={32} height={32}/>
                 </a>
               </div>
               <input className={font.className} type="text" name="" id="" placeholder="Search..."/>
