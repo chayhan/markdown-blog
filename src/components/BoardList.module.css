@@ -1,12 +1,12 @@
 .itemWrapper {
-    margin-top:66px;
     display:flex;
     flex-direction: column;
+    font-weight:300;
     gap:36px;
 }
 
 .itemTitle {
-    font-size: 21px;
+    font-size: 24px;
     margin-bottom:8px;
 }
 
@@ -17,5 +17,5 @@
 
 .itemDate {
     color:var(--secondary-gray);
-    font-size: 16px;
+    font-size: 20px;
 }

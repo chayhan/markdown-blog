@@ -23,13 +23,11 @@ export class MarkdownDocument {
   category:string;
   path: string = "";
   date: Date;
-  index: number;
-  constructor({ title, category, path, date, index }: {title:string, category:string, path:string, date:Date, index:number}) {
+  constructor({ title, category, path, date }: {title:string, category:string, path:string, date:Date}) {
     this.title = title;
     this.category = category;
     this.path = path;
     this.date = date;
-    this.index = index;
   }
   getParsedDate() {
     return `${MONTH_NAME_TABLE[this.date.getMonth()]} ${this.date.getDate()}, ${this.date.getFullYear()}`;
@@ -44,18 +42,21 @@ fs.readdirSync(DOCUMENT_PATH).forEach((item, categoryIdx) => {
     name:item,
     length:0
   });
-  fs.readdirSync(path.join(DOCUMENT_PATH, item)).forEach((filename, index) => {
+  fs.readdirSync(path.join(DOCUMENT_PATH, item)).forEach((filename) => {
     const filestat = fs.statSync(path.join(DOCUMENT_PATH, item, filename));
     const data = new MarkdownDocument({
       title:filename,
       category:item,
       path:path.join(DOCUMENT_PATH, item, filename),
       date:filestat.ctime,
-      index
     });
     documentData.push(data);
     categoryData[categoryIdx].length++;
   });
+});
+
+documentData.sort((a, b) => {
+  return Number(b.date) - Number(a.date);
 });
 
 export function getCategory(categoryName:string) {
@@ -68,7 +69,6 @@ export function getCategorySlice(category:MarkdownDocument[], startIdx:number, e
 }
 
 export async function getDocument(documentMetadata:MarkdownDocument) {
-  console.log(documentMetadata.path);
   const file = fs.readFileSync(path.join(documentMetadata.path, "doc.md"), 'utf-8');
   return file;
 }

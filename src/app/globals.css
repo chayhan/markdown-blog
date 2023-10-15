@@ -5,7 +5,8 @@
     --main-background-color:#1C1C1C;
     --menu-background-color:#0f0f0f;
     --primary-white:#fff;
-    --secondary-white: #bebebe;
+    --secondary-white: #e5e5e5;
+    --third-white: #c0c0c0;
     --primary-gray:#7c7c7c;
     --secondary-gray:#484848;
 
@@ -63,7 +64,7 @@ body * {
     text-decoration: none;
     font-size: 28px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 300;
     line-height: normal;
 }
 

@@ -1,13 +1,9 @@
-import Article from "@/components/layout/Article";
-import ArticleHeader from "@/components/layout/ArticleHeader";
-import ContentBox from "@/components/layout/ContentBox";
-import Title from "@/components/layout/Title";
 import BoardList from "@/components/BoardList";
 import { getCategory, categoryData } from "@/modules/ContentParser";
 
 import { Metadata } from "next";
 import styles from "./page.module.css";
-import Menu from "@/components/Menu";
+import SubPage from "@/components/pages/SubPage";
 
 export const metadata: Metadata = {}
 
@@ -17,25 +13,13 @@ export default function Page({params}:{params:{category: string }}) {
   const categoryDocumentList = getCategory(params.category);
   const pages:number = categoryDocumentList.length;
   metadata.title = params.category + " 카테고리 최신 글 | johann blue";
-  
-  return <>
-    <main className={styles.container}>
-      <ArticleHeader height={160}>
-        <ContentBox width={contentWidth} className={styles.headerWrap}>
-          <div className={styles.subTitle}>
-            {params.category}
-          </div>
-        </ContentBox>
-      </ArticleHeader>
-      <Article>
-        <Menu type="sub" selectIndex={1}/>
-        <ContentBox width={contentWidth}>
-          <Title titleName={params.category + " 카테고리 최신 글"} type="sub"/>
-          <BoardList categoryName={params.category} categoryItems={categoryDocumentList} />
-        </ContentBox>
-      </Article>
-    </main>
-  </>
+
+  return <SubPage type={"category"} categoryName={params.category}>
+    <div className={styles.title}>
+      {params.category + " 카테고리 최신 글"}
+    </div>
+    <BoardList categoryName={params.category} />
+  </SubPage>
 }
 
 export async function generateStaticParams() {
