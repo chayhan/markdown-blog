@@ -1,5 +1,5 @@
 // 글들의 제목을 게시판 형태로 나열하는 컴포넌트이다.
-import { MarkdownDocument, getCategory } from "@/modules/ContentParser";
+import { MarkdownDocument, getCategory } from "@/modules/MarkdownPost";
 import Link from "next/link";
 import styles from "./BoardList.module.css";
 

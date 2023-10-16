@@ -1,18 +1,37 @@
 :root {
-    /* default mode is dark mode */
     --content-max-width:800px;
     --navbar-max-width:1280px;
-    --main-background-color:#1C1C1C;
-    --menu-background-color:#0f0f0f;
-    --primary-white:#fff;
-    --secondary-white: #e5e5e5;
-    --third-white: #c0c0c0;
-    --primary-gray:#7c7c7c;
-    --secondary-gray:#484848;
-
+    --main-background-color:#fafafa;
+    --menu-background-color:#dedede;
+    --primary-white:#000000;
+    --secondary-white: #2a2a2a;
+    --third-white: #373737;
+    --primary-gray:#7b7b7b;
+    --secondary-gray:#aeaeae;
+    --third-gray: rgb(216, 216, 216);
     --navbar-background-color:#161616;
-
+    --code-background:#e3eaf2;
     --footer-background:rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* default mode is dark mode */
+        --content-max-width:800px;
+        --navbar-max-width:1280px;
+        --main-background-color:#1C1C1C;
+        --menu-background-color:#0f0f0f;
+        --primary-white:#fff;
+        --secondary-white: #c0c0c0;
+        --third-white: #c0c0c0;
+        --primary-gray:#7c7c7c;
+        --secondary-gray:#484848;
+        --third-gray:rgb(38, 38, 38);
+        --navbar-background-color:#161616;
+        --code-background:#2b2b2b;
+        --footer-background:rgba(0, 0, 0, 0.2);
+    }
+    
 }
 
 html, body {
@@ -41,7 +60,7 @@ body * {
 
 .nav-container {
     width:100%;
-    background: var(--navbar-background-color);
+    background: var(--menu-background-color);
 }
 
 .nav {

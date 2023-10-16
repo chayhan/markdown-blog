@@ -1,5 +1,5 @@
 import BoardList from "@/components/BoardList";
-import { getCategory, categoryData } from "@/modules/ContentParser";
+import { getCategory, categoryData } from "@/modules/MarkdownPost";
 
 import { Metadata } from "next";
 import styles from "./page.module.css";

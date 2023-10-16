@@ -1,6 +1,6 @@
 import styles from "./Menu.module.css"
 import Link from "next/link"
-import { categoryData } from "@/modules/ContentParser"
+import { categoryData } from "@/modules/MarkdownPost"
 
 export default function Menu({type, selectIndex = 0}:{type:"main" | "sub", selectIndex?:number}) {
   return <>

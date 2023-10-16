@@ -9,9 +9,9 @@
 }
 
 .title {
-    color:var(--secondary-white);
+    color:var(--primary-white);
     font-style: "normal";
-    position: absolute;
+    position: relative;
     top: -27px;
     font-size: 32px;
     font-weight:400;
@@ -21,37 +21,47 @@
     animation:fadeout 300ms;
     font-size:18px;
     font-weight:300;
-    padding-top:48px;
     padding-bottom:32px;
+}
+
+.markdown * {
+    user-select:text;
+    margin:0;
+}
+
+.markdown a {
+    color:var(--primary-white);
 }
 
 .markdown h1 {
     font-size: 32px;
-    font-weight:400;
-    margin-bottom:16px;
-    padding-left: 10px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid #585858;
+    font-weight:600;
+    margin-top:24px;
+    margin-bottom:12px;
+}
+
+.markdown hr {
+    border-bottom: 1px solid var(--primary-gray);
 }
 
 .markdown h2 {
     font-size:28px;
-    font-weight:400;
-    margin-bottom:16px;
-    padding-left: 10px;
-    padding-bottom: 3px;
-    border-bottom: 1px solid #585858;
+    font-weight:600;
+    margin-top:24px;
+    margin-bottom:12px;
 }
 
 .markdown h3 {
     font-weight:400;
     font-size:22px;
+    margin-top:12px;
     margin-bottom:8px;
 }
 
 .markdown h4 {
     font-weight:400;
     font-size:20px;
+    margin-top:12px;
     margin-bottom:8px;
 }
 
@@ -61,16 +71,17 @@
 }
 
 .markdown blockquote {
-    border-left: 5px solid white;
+    border-left: 5px solid var(--primary-white);
     padding-left: 10px;
 }
 
 .markdown pre {
+    color:var(--secondary-white);
     border-radius: 6px;
-    border: 1px solid #404040;
+    /* border: 1px solid var(--primary-gray); */
     padding: 10px;
     margin: 12px 0;
-    background-color: #131313;
+    background-color: var(--code-background);
     font-size:15px;
 }
 
@@ -78,13 +89,14 @@
     border-radius: 6px;
     line-height: 1.5;
     padding:6px;
-    background-color: #131313;
-    color:#e9e9e9;
+    background-color: var(--code-background);
+    color:var(--secondary-white);
     font-size: 15px;
 }
 
 .markdown pre > code {
     padding: 0;
+    background-color: transparent;
     font-weight:normal;
 }
 
@@ -100,12 +112,6 @@
 .markdown ol {
     margin-bottom:12px;
     padding-left: 48px;
-}
-
-.markdown * {
-    color:var(--primary-white);
-    user-select:text;
-    margin:0;
 }
 
 .markdown .imageWrapper {

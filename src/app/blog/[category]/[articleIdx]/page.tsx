@@ -1,32 +1,32 @@
-
-import Markdown from "react-markdown";
-import { MarkdownDocument, categoryData, getCategory, getDocument } from "@/modules/ContentParser";
-
+import { categoryData, fetchDocument } from "@/modules/MarkdownPost";
+import SubPage from "@/components/pages/SubPage";
 import { Metadata } from "next";
-import styles from "./page.module.css";
+
 import Image from "next/image";
+import { prefix } from "@/config";
 import path from "node:path";
 
-import sizeOf from "image-size";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypePrism from "rehype-prism-plus";
 
-import { prefix } from "@/config";
-import SubPage from "@/components/pages/SubPage";
+import styles from "./page.module.css";
+import "./Markdown.css"
 
 export const metadata: Metadata = {};
 
-export default async function Page({ params }: { params: { category: string; articleIdx: number } }) {
-  const {
-    documentMetadata,
-    content,
-    imageSizes
-  } = await fetchDocument({category:params.category, articleIdx:params.articleIdx});
+export default function Page({ params }: { params: { category: string; articleIdx: number } }) {
+  const { doc, content, imageSizes } = fetchDocument({ category: params.category, articleIdx: params.articleIdx });
+  /* metadata 설정 */
+  metadata.title = doc.title + " | johann blue";
+  if (metadata.openGraph) metadata.openGraph.title = metadata.title;
 
   return (
-    <SubPage type={"document"} categoryName={params.category} date={documentMetadata.date}>
-      <div className={styles.title}>
-        {documentMetadata.title}
-      </div>
+    <SubPage type={"document"} categoryName={params.category} date={doc.date}>
+      <div className={styles.title}>{doc.title}</div>
       <Markdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypePrism]}
         className={styles.markdown}
         components={{
           img: (props) => {
@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { category: string; art
             
             src = src ?? "";
             const {width, height} = imageSizes[path.join(src) ?? ""];
-            src = `${prefix}/${documentMetadata.path.replace(/\\/g, "/").replace('public/', "")}/${src}`;
+            src = `${prefix}/${doc.path.replace(/\\/g, "/").replace('public/', "")}/${src}`;
             console.log("FINAL SRC :: ", src);
             return (
               <Image
@@ -45,7 +45,7 @@ export default async function Page({ params }: { params: { category: string; art
                 height={height}
               />
             );
-          },
+          }
         }}
       >
         {content}
@@ -54,47 +54,17 @@ export default async function Page({ params }: { params: { category: string; art
   );
 }
 
-async function fetchDocument(params: { category: string; articleIdx: number }) {
-  const categoryDocumentList = getCategory(params.category);
-  const documentMetadata: MarkdownDocument = categoryDocumentList[params.articleIdx];
-  metadata.title = documentMetadata.title + " | johann blue";
-  const content = await getDocument(documentMetadata);
-  const iterator = content.matchAll(/\!\[.*]\((.*)\)/g);
-  let match: IteratorResult<RegExpMatchArray, any>;
-
-  const imageSizes: Record<string, { width: number | undefined; height: number | undefined }> = {};
-
-  while (!(match = iterator.next()).done) {
-    const [, src] = match.value;
-    console.log(src);
-    try {
-      const abs_src = path.join(documentMetadata.path, src);
-      console.log("ABS_SRC :: ", abs_src);
-      const { width, height } = await sizeOf(abs_src);
-      console.log("WIDTH :: ", width);
-      imageSizes[src] = { width, height };
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  return {
-    categoryDocumentList,
-    documentMetadata,
-    content,
-    imageSizes
-  }
-}
-
 export async function generateStaticParams() {
-  const paramData:{category:string, articleIdx:string}[] = [];
+  const paramData: { category: string; articleIdx: string }[] = [];
+
   categoryData.forEach((item) => {
-    for(let i=0; i<item.length; ++i) {
+    for (let i = 0; i < item.length; ++i) {
       paramData.push({
-        category:item.name,
-        articleIdx:i.toString()
-      })
+        category: item.name,
+        articleIdx: i.toString(),
+      });
     }
-  })
+  });
+
   return paramData;
 }

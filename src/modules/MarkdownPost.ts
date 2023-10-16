@@ -1,6 +1,7 @@
 // parse markdown.
 import fs from "node:fs";
 import path from "node:path";
+import sizeOf from "image-size";
 
 const DOCUMENT_PATH = path.join("public", "docs");
 const MONTH_NAME_TABLE = [
@@ -68,7 +69,40 @@ export function getCategorySlice(category:MarkdownDocument[], startIdx:number, e
   return category.slice(startIdx, endIdx);
 }
 
-export async function getDocument(documentMetadata:MarkdownDocument) {
-  const file = fs.readFileSync(path.join(documentMetadata.path, "doc.md"), 'utf-8');
-  return file;
+
+function fetchImageSizes(content: string, doc: MarkdownDocument) {
+  /* 이미지의 가로세로 높이를 구하는 과정임. function으로 따로 빼야함. */
+  const iterator = content.matchAll(/\!\[.*]\((.*)\)/g);
+
+  let match: IteratorResult<RegExpMatchArray, any>;
+
+  const imageSizes: Record<string, { width: number | undefined; height: number | undefined }> = {};
+
+  while (!(match = iterator.next()).done) {
+    const [, src] = match.value;
+
+    try {
+      const abs_src = path.join(doc.path, src);
+
+      const { width, height } = sizeOf(abs_src);
+
+      imageSizes[src] = { width, height };
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  return imageSizes;
+}
+
+export function fetchDocument(params: { category: string; articleIdx: number }) {
+  const doc = getCategory(params.category)[params.articleIdx];
+  const content = fs.readFileSync(path.join(doc.path, "doc.md"), 'utf-8');
+  const imageSizes = fetchImageSizes(content, doc);
+  
+  return {
+    doc,
+    content,
+    imageSizes,
+  };
 }
