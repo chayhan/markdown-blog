@@ -19,10 +19,7 @@ export default function Page({ params }: { params: { category: string; articleId
   const { doc, content, imageSizes } = fetchDocument({ category: params.category, articleIdx: params.articleIdx });
   /* metadata 설정 */
   metadata.title = doc.title + " | johann blue";
-  metadata.openGraph = {
-    title : metadata.title,
-    description : content.replace(/#|\n|```/g, ""),
-  }
+  if (metadata.openGraph) metadata.openGraph.title = metadata.title;
 
   return (
     <SubPage type={"document"} categoryName={params.category} date={doc.date}>
