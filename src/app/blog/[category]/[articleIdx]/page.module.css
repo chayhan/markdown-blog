@@ -120,7 +120,7 @@
 }
 
 .markdown .image {
-    max-width:750px;
+    max-width: -webkit-fill-available;
     border-radius: 10px;
     margin:10px auto;
     display:block;
@@ -133,4 +133,21 @@
     font-style:italic;
     font-size:14px;
     margin:8px 0;
+}
+
+@media all and (min-width:1400px) {
+}
+
+@media all and (min-width:850px) and (max-width:1400px) {
+}
+
+@media all and (max-width:849px) {
+    .contentWrap {
+        padding-left:20px;
+        padding-right:20px;
+    }
+    .headerWrap > div {
+        padding-left:20px;
+        padding-right:20px;
+    }
 }

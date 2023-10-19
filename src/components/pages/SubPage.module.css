@@ -5,7 +5,7 @@
 
 .headerWrap > div{
     height: 100%;
-    max-width:800px;
+    max-width:var(--content-max-width);
     position: relative;
     margin:0 auto;
 }
@@ -32,6 +32,23 @@
 
 .contentWrap {
     margin:0 auto;
-    max-width:800px;
+    max-width:var(--content-max-width);
     position:relative;
+}
+
+@media all and (min-width:1400px) {
+}
+
+@media all and (min-width:850px) and (max-width:1400px) {
+}
+
+@media all and (max-width:849px) {
+    .contentWrap {
+        padding-left:20px;
+        padding-right:20px;
+    }
+    .headerWrap > div {
+        padding-left:20px;
+        padding-right:20px;
+    }
 }

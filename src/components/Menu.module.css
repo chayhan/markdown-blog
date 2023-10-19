@@ -1,16 +1,44 @@
-.listMain {
-    
-    margin-right:140px;
+.nav {
+    max-width:var(--max-width);
+    display:flex;
+    flex-wrap:wrap;
+    margin:0 auto;
+    /* height:var(--nav-height); */
+    padding-top:16px;
+    padding-bottom:16px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav .logo {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: flex-end;
+    color:var(--primary-white);
+    text-decoration: none;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 
 .list {
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     list-style: none;
-    gap:8px;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
+    margin:0;
+    padding:0;
+}
+
+.lineBreak {
+    display:none;
+    width:100%;
+    height:10px;
 }
 
 .list * {
@@ -18,12 +46,60 @@
     text-decoration: none;
 }
 
-.listSub {
-    position:absolute;
-    margin-top: 48px;
-    margin-left: 200px;
+.collapseButton {
+    display:none;
+    background: none;
+    border: none;
+    cursor:pointer;
+    color: var(--primary-white);
 }
 
-.listSub .select * {
-    color:var(--secondary-white);
+.collapseButton::after {
+    content:'\2630';
+    font-size: 32px;
+    font-weight: 900;
+}
+
+@media all and (min-width:1400px) {
+    .list {
+        gap:70px;
+    }
+}
+
+@media all and (min-width:850px) and (max-width:1400px) {
+    .list {
+        gap:20px;
+    }
+}
+
+@media all and (max-width:849px) {
+    .hidden {
+        max-height:0;
+    }
+    .list {
+        flex-direction:column;
+        gap:10px;
+        overflow:hidden;
+        transition:all 0.2s ease-out;
+    }
+    .lineBreak {
+        display:block;
+        transition:all 0.2s ease-out;
+    }
+    .collapseButton {
+        display:block;
+    }
+    .nav {
+        padding-left:20px;
+        padding-right:20px;
+    }
+    .nav .logoCharacter {
+        display:none;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .githubIcon {
+        filter:brightness(0);
+    }
 }

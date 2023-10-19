@@ -1,4 +1,3 @@
-import Menu from "@/components/Menu";
 import styles from "./SubPage.module.css";
 
 type SubPageProps = {
@@ -24,7 +23,6 @@ export default function SubPage({children, type, date, categoryName}:SubPageProp
       </div>
     </div>
     <div>
-      <Menu type="sub" selectIndex={1}/>
       <div className={styles.contentWrap}>
         {children}
       </div>

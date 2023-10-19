@@ -22,8 +22,8 @@ export default function Page({ params }: { params: { category: string; articleId
   metadata.openGraph = {
     title : metadata.title,
     description : content.replace(/#|\n|```/g, ""),
+    images:`${prefix}/favicon-128.png`,
   };
-
   return (
     <SubPage type={"document"} categoryName={params.category} date={doc.date}>
       <div className={styles.title}>{doc.title}</div>

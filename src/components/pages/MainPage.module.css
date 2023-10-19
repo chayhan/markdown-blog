@@ -9,7 +9,7 @@
     display:flex;
     flex-direction: row;
     align-content: center;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
 }
 
@@ -20,7 +20,7 @@
     flex-direction: column;
     align-content: center;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .logoContainer :first-child {
@@ -57,8 +57,7 @@
 }
 
 .description {
-    position:relative;
-    top:60px;
+    margin-top:60px;
     display:flex;
     flex-direction: column;
     gap:10px;
@@ -78,7 +77,25 @@
 }
 
 .contentWrapper {
-    max-width:1280px;
+    max-width:var(--max-width);
     margin: 0 auto;
+    justify-content: center;
+    padding-bottom:24px;
 }
 
+@media all and (min-width:1400px) {
+}
+
+@media all and (min-width:850px) and (max-width:1400px) {
+}
+
+@media all and (max-width:849px) {
+    .contentWrapper {
+        padding-left:20px;
+        padding-right:20px;
+    }
+    .headerWrapper {
+        padding-left:20px;
+        padding-right:20px;
+    }
+}

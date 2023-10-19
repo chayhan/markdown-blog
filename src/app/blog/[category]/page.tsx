@@ -4,15 +4,21 @@ import { getCategory, categoryData } from "@/modules/MarkdownPost";
 import { Metadata } from "next";
 import styles from "./page.module.css";
 import SubPage from "@/components/pages/SubPage";
+import { prefix } from "@/config";
 
 export const metadata: Metadata = {}
 
 export default function Page({params}:{params:{category: string }}) {
-  const contentWidth = 800;
-  // 쿼리스트링으로 페이지 표시 목차 표현
+  
+
   const categoryDocumentList = getCategory(params.category);
   const pages:number = categoryDocumentList.length;
+  
   metadata.title = params.category + " 카테고리 최신 글 | johann blue";
+  metadata.openGraph = {
+    title : metadata.title,
+    images:`${prefix}/favicon-128.png`,
+  };
 
   return <SubPage type={"category"} categoryName={params.category}>
     <div className={styles.title}>

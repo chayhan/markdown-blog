@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Noto_Sans_KR } from "next/font/google";
 import { prefix, isDebug } from "@/config";
 import 'prismjs/themes/prism-tomorrow.css';
+import Menu from "@/components/Menu";
+import { categoryData } from "@/modules/MarkdownPost";
 
 const font = Noto_Sans_KR({ subsets: ["latin"] });
 
@@ -24,18 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   const navbar = (
     <div className="nav-container">
-      <div className="nav">
-        <div className="menu">
-          <Link className="logo" href="/">
-            <Image src={`${prefix}/favicon-128.png`} alt='favicon' width={32} height={32} style={{borderRadius:6}}></Image>
-            johann blue
-          </Link>
-          <a href="https://github.com/johannblue">
-            <Image src={`${prefix}/github-icon.png`} alt="github" width={32} height={32}/>
-          </a>
-        </div>
-        <input className={font.className} type="text" name="" id="" placeholder="Search..."/>
-      </div>
+      <Menu categoryData={categoryData} />
     </div>
   );
 

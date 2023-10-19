@@ -1,8 +1,10 @@
 :root {
-    --content-max-width:800px;
-    --navbar-max-width:1280px;
-    --main-background-color:#fafafa;
-    --menu-background-color:#dedede;
+    --mobile-width:850px;
+
+    --nav-height:80px;
+
+    --main-background-color:#f0f0f0;
+    --menu-background-color:#fafafa;
     --primary-white:#000000;
     --secondary-white: #2a2a2a;
     --third-white: #373737;
@@ -17,8 +19,7 @@
 @media (prefers-color-scheme: dark) {
     :root {
         /* default mode is dark mode */
-        --content-max-width:800px;
-        --navbar-max-width:1280px;
+        
         --main-background-color:#1C1C1C;
         --menu-background-color:#0f0f0f;
         --primary-white:#fff;
@@ -32,6 +33,27 @@
         --footer-background:rgba(0, 0, 0, 0.2);
     }
     
+}
+
+@media all and (min-width:1400px) {
+    :root {
+        --content-max-width:800px;
+        --max-width:1200px;
+    }
+}
+
+@media all and (min-width:850px) and (max-width:1400px) {
+    :root {
+        --content-max-width:700px;
+        --max-width:800px;
+    }
+}
+
+@media all and (max-width:849px) {
+    :root {
+        --content-max-width:480px;
+        --max-width:700px;
+    }
 }
 
 html, body {
@@ -58,55 +80,18 @@ body * {
     background:var(--secondary-gray);
 }
 
-.nav-container {
-    width:100%;
-    background: var(--menu-background-color);
+
+
+@media all and (min-width:1400px) {
+
 }
 
-.nav {
-    max-width:1280px;
-    display:flex;
-    margin:0 auto;
-    width:100%;
-    height:80px;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: space-between;
+@media all and (min-width:850px) and (max-width:1400px) {
+
 }
 
-.nav a.logo {
-    display: flex;
-    gap: 10px;
-    flex-direction: row;
-    align-items: flex-end;
-    color:var(--primary-white);
-    text-decoration: none;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
-
-.nav .menu {
-    display:flex;
-    gap:80px;
-    align-items: flex-end;
-}
-
-.nav input {
-    width: 320px;
-    height: 20px;
-    padding:10px;
-    flex-shrink: 0;
-    font-size:16px;
-    background-color: #292929;
-    color:var(--primary-white);
-    border:none;
-    border-radius:6px;
-}
-
-.nav input:focus-visible {
-    outline:none;
+@media all and (max-width:849px) {
+    
 }
 
 footer {

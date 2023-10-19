@@ -19,6 +19,10 @@ const MONTH_NAME_TABLE = [
   "Dec"
 ];
 
+export type Category = {
+  name:string,
+  length:number,
+};
 export class MarkdownDocument {
   title: string = "";
   category:string;
@@ -36,7 +40,7 @@ export class MarkdownDocument {
 }
 
 export const documentData:MarkdownDocument[] = [];
-export const categoryData:{name:string, length:number}[] = [];
+export const categoryData:Category[] = [];
 
 fs.readdirSync(DOCUMENT_PATH).forEach((item, categoryIdx) => {
   categoryData.push({
