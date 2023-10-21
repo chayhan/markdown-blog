@@ -3,18 +3,22 @@ import Giscus from "@giscus/react";
 
 export default function GiscusComponent() {
   return <Giscus
-    repo={"johannblue/markdown-blog"}
-    repoId={"R_kgDOKUiJsQ"}
+    repo="johannblue/markdown-blog"
+    repoId="R_kgDOKUiJsQ"
+    category="comments"
+    categoryId="DIC_kwDOKUiJsc4CaU5s"
 
-    category="General"
-    category-id="DIC_kwDOKUiJsc4CaU3v"
     strict="0"
-    
-    mapping={"pathname"}
+    reactionsEnabled="1"
+
+    emitMetadata="0"
+
+    mapping="pathname"
     loading="lazy"
     lang="ko"
+
     theme="preferred_color_scheme"
-    reactionsEnabled="1"
+    
     
   />;
 }
