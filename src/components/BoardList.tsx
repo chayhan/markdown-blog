@@ -3,8 +3,6 @@ import { MarkdownDocument, getCategory } from "@/modules/MarkdownPost";
 import Link from "next/link";
 import styles from "./BoardList.module.css";
 
-const BLOG_LINK = '/blog';
-
 export default function BoardList({ categoryName }: { categoryName:string }) {
   const categoryItems:MarkdownDocument[] = getCategory(categoryName);
   return (
@@ -13,7 +11,7 @@ export default function BoardList({ categoryName }: { categoryName:string }) {
         return (
           <div className={styles.item} key={idx}>
             <div className={styles.itemTitle}>
-              <Link href={`${BLOG_LINK}/${categoryName}/${idx}`}>
+              <Link href={`/${item.no}`}>
                 {item.title}
               </Link>
             </div>

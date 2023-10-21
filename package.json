@@ -10,6 +10,7 @@
     "deploy": "touch docs/.nojekyll && git add -f docs/ && git commit -m \"deploy to github page\" && git push"
   },
   "dependencies": {
+    "@giscus/react": "^2.3.0",
     "dotenv": "^16.3.1",
     "image-size": "^1.0.2",
     "next": "latest",

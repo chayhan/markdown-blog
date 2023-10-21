@@ -14,7 +14,7 @@
     color: var(--primary-gray);
     font-size: 18px;
     font-style: normal;
-    font-weight: 200;
+    font-weight: 400;
     line-height: normal;
     position: absolute;
     bottom: 24px;
@@ -34,6 +34,11 @@
     margin:0 auto;
     max-width:var(--content-max-width);
     position:relative;
+    padding-bottom:20px;
+}
+
+.category {
+    color: var(--primary-white);
 }
 
 @media all and (min-width:1400px) {

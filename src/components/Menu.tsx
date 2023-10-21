@@ -61,7 +61,7 @@ export default function Menu({ categoryData }: MenuProps) {
         {categoryData.map((value, idx) => {
           return (
             <li key={idx} onClick={setMenu("hide", listElement, lineBreak)}>
-              <Link href={`/blog/${value.name}`}>{`${value.name}`}</Link>
+              <Link href={`/category/${value.name}`}>{`${value.name}`}</Link>
             </li>
           );
         })}

@@ -1,4 +1,6 @@
+import { prefix } from "@/config";
 import styles from "./SubPage.module.css";
+import Link from "next/link";
 
 type SubPageProps = {
   type:"category" | "document",
@@ -14,7 +16,9 @@ export default function SubPage({children, type, date, categoryName}:SubPageProp
         <div className={styles.subTitle}>
           {date && type === "document" ? 
           <>
-            {categoryName}
+            <Link className={styles.category} href={`/category/${categoryName}`}>
+              {categoryName}
+            </Link>
             <span className={styles.date}>
               {date.toLocaleString()}
             </span>

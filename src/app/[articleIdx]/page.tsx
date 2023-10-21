@@ -1,4 +1,4 @@
-import { categoryData, fetchDocument } from "@/modules/MarkdownPost";
+import { documentData, fetchDocument } from "@/modules/MarkdownPost";
 import SubPage from "@/components/pages/SubPage";
 import { Metadata } from "next";
 
@@ -12,20 +12,22 @@ import rehypePrism from "rehype-prism-plus";
 
 import styles from "./page.module.css";
 import "./Markdown.css"
+import Giscus from "./Giscus";
 
 export const metadata: Metadata = {};
 
-export default function Page({ params }: { params: { category: string; articleIdx: number } }) {
-  const { doc, content, imageSizes } = fetchDocument({ category: params.category, articleIdx: params.articleIdx });
+export default function Page({ params }: { params: { articleIdx: number } }) {
+  const { doc, content, category, imageSizes } = fetchDocument(params.articleIdx);
   /* metadata 설정 */
   metadata.title = doc.title + " | johann blue";
   metadata.openGraph = {
     title : metadata.title,
-    description : content.replace(/#|\n|```/g, ""),
+    description : content.replace(/#|[\r\n]|`/g, "").slice(0, 70),
     images:`${prefix}/favicon-128.png`,
   };
   return (
-    <SubPage type={"document"} categoryName={params.category} date={doc.date}>
+    <SubPage type={"document"} categoryName={category} date={doc.date}>
+      
       <div className={styles.title}>{doc.title}</div>
       <Markdown
         remarkPlugins={[remarkGfm]}
@@ -53,20 +55,18 @@ export default function Page({ params }: { params: { category: string; articleId
       >
         {content}
       </Markdown>
+      <Giscus />
     </SubPage>
   );
 }
 
 export async function generateStaticParams() {
-  const paramData: { category: string; articleIdx: string }[] = [];
+  const paramData: { articleIdx: string }[] = [];
 
-  categoryData.forEach((item) => {
-    for (let i = 0; i < item.length; ++i) {
-      paramData.push({
-        category: item.name,
-        articleIdx: i.toString(),
-      });
-    }
+  documentData.forEach((item) => {
+    paramData.push({
+      articleIdx: item.no.toString(),
+    });
   });
 
   return paramData;

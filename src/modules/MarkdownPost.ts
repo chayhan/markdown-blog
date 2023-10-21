@@ -23,13 +23,21 @@ export type Category = {
   name:string,
   length:number,
 };
+
+type MarkdownDocumentArg = {
+  title:string,
+  category:string,
+  path:string,
+  date:Date
+}
 export class MarkdownDocument {
   title: string = "";
   category:string;
   path: string = "";
   date: Date;
-  constructor({ title, category, path, date }: {title:string, category:string, path:string, date:Date}) {
-    this.title = title;
+  no: number = 0; // post의
+  constructor({ title, category, path, date }: MarkdownDocumentArg) {
+    this.title = title.replace(/%c/g, ":");
     this.category = category;
     this.path = path;
     this.date = date;
@@ -42,27 +50,34 @@ export class MarkdownDocument {
 export const documentData:MarkdownDocument[] = [];
 export const categoryData:Category[] = [];
 
-fs.readdirSync(DOCUMENT_PATH).forEach((item, categoryIdx) => {
-  categoryData.push({
-    name:item,
-    length:0
-  });
-  fs.readdirSync(path.join(DOCUMENT_PATH, item)).forEach((filename) => {
-    const filestat = fs.statSync(path.join(DOCUMENT_PATH, item, filename));
-    const data = new MarkdownDocument({
-      title:filename,
-      category:item,
-      path:path.join(DOCUMENT_PATH, item, filename),
-      date:filestat.ctime,
+(function preprocess() {
+  fs.readdirSync(DOCUMENT_PATH).forEach((item, categoryIdx) => {
+    categoryData.push({
+      name:item,
+      length:0
     });
-    documentData.push(data);
-    categoryData[categoryIdx].length++;
+    fs.readdirSync(path.join(DOCUMENT_PATH, item)).forEach((filename) => {
+      const filestat = fs.statSync(path.join(DOCUMENT_PATH, item, filename));
+      const data = new MarkdownDocument({
+        title:filename,
+        category:item,
+        path:path.join(DOCUMENT_PATH, item, filename),
+        date:filestat.birthtime,
+      });
+      documentData.push(data);
+      categoryData[categoryIdx].length++;
+    });
   });
-});
 
-documentData.sort((a, b) => {
-  return Number(b.date) - Number(a.date);
-});
+  documentData.sort((a, b) => {
+    return Number(b.date) - Number(a.date);
+  });
+  
+  documentData.forEach((item, index) => {
+    documentData[index].no = documentData.length - index;
+  });
+
+})();
 
 export function getCategory(categoryName:string) {
   return documentData.filter((item:MarkdownDocument) => categoryName == item.category);
@@ -99,14 +114,16 @@ function fetchImageSizes(content: string, doc: MarkdownDocument) {
   return imageSizes;
 }
 
-export function fetchDocument(params: { category: string; articleIdx: number }) {
-  const doc = getCategory(params.category)[params.articleIdx];
+export function fetchDocument(articleIdx: number) {
+  const doc = documentData[documentData.length - articleIdx];
   const content = fs.readFileSync(path.join(doc.path, "doc.md"), 'utf-8');
   const imageSizes = fetchImageSizes(content, doc);
-  
+  const category = doc.category;
+
   return {
     doc,
     content,
     imageSizes,
+    category
   };
 }
