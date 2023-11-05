@@ -39,7 +39,7 @@
 }
 
 .container * {
-    user-select: none;
+    
 }
 
 
@@ -57,7 +57,7 @@
 }
 
 .description {
-    margin-top:60px;
+    padding-top:30px;
     display:flex;
     flex-direction: column;
     gap:10px;

@@ -6,7 +6,7 @@
 }
 
 .itemTitle {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom:8px;
 }
 
@@ -17,6 +17,6 @@
 
 .itemDate {
     color:var(--secondary-gray);
-    font-size: 20px;
+    font-size: 18px;
     font-weight:300;
 }
