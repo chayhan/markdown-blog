@@ -1,0 +1,171 @@
+## 접근
+
+
+처음 접근은 이랬습니다. 사실 제일 처음에 어려웠던 부분은 d-정상이 무엇인지 이해를 하는 것이였습니다.
+
+d만큼의 높이차가 존재하는 정상들은 모두 정상이다라고 생각을 해서 땅에서부터 그냥 bfs하면 되는것 아닌가 싶은데,
+잘못된 방법이였습니다.
+
+땅에서부터 d 만큼의 높이차가 존재하는 지역이 정상이라고 생각할 수 없는 이유는, 해당하는 높은 지역 사이에 그 지역보다 더 높은 지역이 있을지도 모르기 때문입니다.
+
+예를들어, 해당 지점이 땅이 아닌 지점이면서 (h-d)보다 더 낮은 지점이 방문 가능한 봉우리 h가 있다고 하면 어떻게 될까요?
+
+그림으로 설명해보겠습니다.
+
+```
+- 제일 높은 위치 (0)
+			            ---           ==> 여긴 d 정상임 (1)
+		                | -> d보다 작음
+            ------  ===========> 여긴 d 정상이 아님. (2)
+            | -> d보다 큼.
+---- 땅 -
+```
+
+```
+1
+2 4 2
+5 0 3 4
+```
+
+가장 높은 지점에서만 bfs하면  (1)이 d-정상임을 판별할 수 없고,
+
+땅에서부터 bfs하면 (2)가 d-정상이 아님을 판별할 수 없습니다.
+
+따라서 저희는 모든 점을 찾아볼 수 밖에 없습니다.
+
+다만, 그중에서 가장 높은 "정상"부터 BFS해야합니다. d-정상의 정의에 따르면 높이가 어떻든, 가장 높은 점은 자신보다 더 높은 점이 존재하지 않기 때문에 주어진 맵에서 가장 높은 높이를 부여받은 지점은 무조건 d-정상에 해당됩니다.
+
+일단 가장 높은 지점에서부터 높이차가 d보다 작은 지점들을 bfs 하면서 visit 을 했다는 표식을 남깁시다.
+
+이 표식이 그 다음으로 가장 높은 지점에서  높이차가 d보다 작은 지점들을 bfs를 하다가 사전에 방문했던 지점들을 만난다면, 그것은 d-정상의 정의에 위배됩니다. 따라서 해당 bfs시작점을 비롯한 bfs 중 만났던 해당 bfs 시점 중 가장 높은 지점들 전부 d-정상에 위배됩니다.
+
+현재 bfs 중 방문햇던 지점과, 이전에 이미 방문했었던 지점을 구별하기 위해 `visit` 값은 `bool`이 아닌 `int` 값을 사용했습니다.
+
+## 구현
+
+1. 가장 높은 지역을 BFS 한다.
+
+2. 닿지 않는 지역 중 그다음으로 가장 높은 지역을 BFS 한다. // 각 세그 먼트 중 자신보다 높은 지역이 닿이는 세그먼트는 d 정상이 아니다.
+
+3. `queue`를 sorting 할거면.. `priority queue`를 사용.
+
+PQ를 사용한 뒤, 일단 visit 배열을 정상값으로 칠합니다. 이게 무슨 소리냐면, 3 이 정상이라 하면, 최소 (3 - d)인 지점을 모두 bfs 해가며 해당 부분의 visit 값은 가장 높은 정상의 값으로 정한다는 뜻입니다.
+
+만약 해당 bfs segment 도중에 자신보다 높은 지점을 나타내는 , 해당 bfs 서브프로세스에서 얻는 d-정상의 개수는 무조건 0으로 합니다. 단, 추후 bfs 할 프로세스에서 가장 높은 h는 현재의 h보다 작기 때문에 bfs 세그먼트를 계속해야합니다.
+
+도중에 자신과 같은 높이의 지점을 만났다면 bfs segment 에서 더할 d-정상의 개수를 1 늘립니다.
+
+도중에 라벨된 지점을 만났다면 해당 segment에서 얻는 d-정상의 개수는 0입니다. 왜냐하면 지점이 높은순으로 라벨링을 했기 때문입니다.
+
+## 내가 계속 틀렸던 이유
+
+### board를 클리어하지 않아서 계속 틀렸었다.
+
+이때 `vector`를 써야하는 이유를 알았습니다.
+
+vector 가 갖는 또 다른 이점은 로컬 변수로 선언함으로써 반복문 내에서도 부담없이 memset할 필요가 없었고, 무엇보다 스택 영역을 차지하지 않음으로써 스택오버플로우도 면할 수 있었습니다. 여러모로 상당히 고마운 존재입니다.
+
+### board[n+2][m+2] 와 같은 형식으로 구현하고자 하는 경우
+
+이럴땐 board[][]의 경계선을 확실히 해주도록합시다. 문제에선 0이 가장 낮은 땅이므로 경계선과 땅을 구별할 수 없습니다.
+
+따라서 입력된 board[][] 값을 모두 1씩 올려줌으로써 해결했습니다.
+
+
+## 소스코드
+
+```cpp
+#include<iostream>
+#include<queue>
+#include<cstring>
+using namespace std;
+typedef pair<int, int> pii;
+
+int board[502][502];
+int visit[502][502] = { 0, };
+int dir[4][2] = {
+	{0, 1},
+	{0, -1},
+	{1, 0},
+	{-1, 0}
+};
+
+int n, m, d, total;
+priority_queue<pair<int, pii>> pq;
+queue<pii> bfs_q;
+
+int main() {
+	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	int t; cin >> t;
+	while (t--) {
+		total = 0;
+		cin >> n >> m >> d;
+		for (int i = 0; i <= n + 1; ++i) {
+			memset(visit[i], 0, sizeof(visit[i]));
+			memset(board[i], 0, sizeof(board[i]));
+		}
+
+		for (int i = 1; i <= n; ++i) {
+			for (int j = 1; j <= m; ++j) {
+				cin >> board[i][j];
+				board[i][j]++;
+				if (board[i][j]) {
+					pq.push({ board[i][j], {i, j} });
+				}
+			}
+		}
+
+		int visit_seg = 0;
+
+		while (!pq.empty()) {
+			int d_summit = 1;
+			visit_seg++;
+			int h = pq.top().first;
+			int st_x = pq.top().second.second;
+			int st_y = pq.top().second.first;
+			pq.pop();
+
+			if (visit[st_y][st_x]) continue;
+			visit[st_y][st_x] = visit_seg;
+
+			bfs_q.push({ st_y, st_x });
+
+			while (!bfs_q.empty()) {
+				int y = bfs_q.front().first;
+				int x = bfs_q.front().second;
+				bfs_q.pop();
+
+				for (int i = 0; i < 4; ++i) {
+					int dy = y + dir[i][0];
+					int dx = x + dir[i][1];
+
+					if (!board[dy][dx]) continue;
+
+					if (visit[dy][dx] && visit[dy][dx] < visit_seg) {
+						d_summit = 0;
+						continue;
+					}
+
+					if (visit[dy][dx] == visit_seg) continue;
+
+					if (board[dy][dx] == h) {
+						if (d_summit) d_summit++;
+					}
+
+					if (!visit[dy][dx] && board[dy][dx] > h - d) {
+						visit[dy][dx] = visit_seg;
+						bfs_q.push({ dy, dx });
+					}
+				}
+
+			}
+
+			total += d_summit;
+		}
+
+		cout << total << '\n';
+	}
+}
+```
+
+
