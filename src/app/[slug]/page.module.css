@@ -1,4 +1,14 @@
 /* 이거 서브페이지 메뉴 제외한 전 구역에 넣어보고싶음 */
+@keyframes stretchRight {
+    0% {
+        width:0;
+    }
+    100% {
+        width:100%;
+    }
+}
+
+
 @keyframes fadeout {
     0% {
         opacity:0;
@@ -8,13 +18,33 @@
     }
 }
 
+.wrap {
+    max-width:800px;
+    margin:10px auto;
+    margin-bottom:60px;
+}
+
 .title {
-    color:var(--primary-white);
-    font-style: "normal";
-    position: relative;
-    top: -27px;
+    color: #DADADA;
     font-size: 32px;
-    font-weight:600;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.date {
+    color: #5A5A5A;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.line {
+    margin:15px 0;
+    position:relative;
+    width:100%;
+    height: 1px;
+    background-color:#909090;
+    animation:stretchRight 1000ms;
 }
 
 .markdown {
@@ -37,6 +67,7 @@
 .markdown h1 {
     font-size: 32px;
     font-weight:600;
+    border-bottom:1px solid #909090;
     margin-top:24px;
     margin-bottom:12px;
 }
@@ -52,6 +83,7 @@
 .markdown h2 {
     font-size:28px;
     font-weight:600;
+    border-bottom:1px solid #383838;
     margin-top:24px;
     margin-bottom:12px;
 }

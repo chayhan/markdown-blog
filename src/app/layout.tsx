@@ -1,14 +1,12 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { Noto_Sans_KR } from "next/font/google";
 import { prefix, isDebug } from "@/config";
 import 'prismjs/themes/prism-tomorrow.css';
-import Menu from "@/components/Menu";
-import { categoryData } from "@/modules/MarkdownPost";
+import Navbar from "@/app/Navbar";
+import Footer from "./Footer";
 
-const font = Noto_Sans_KR({ subsets: ["latin"] });
+const font = Noto_Sans_KR({ subsets: ["latin", "latin-ext"] });
 
 export const metadata: Metadata = {
   metadataBase:new URL("https://johannblue.github.io/markdown-blog"),
@@ -26,15 +24,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   const navbar = (
     <div className="nav-container">
-      <Menu categoryData={categoryData} />
+      <Navbar />
     </div>
-  );
-
-  const footer = (
-    <footer>    
-      <p>designed by @johannblue</p>
-      <p>powered by github.io</p>
-    </footer>
   );
 
   return (
@@ -44,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {navbar}
           {children}
         </div>
-        {footer}
+        <Footer />
       </body>
     </html>
   );

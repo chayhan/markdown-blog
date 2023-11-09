@@ -1,0 +1,84 @@
+@keyframes drop {
+    0% {
+        height:0;
+    }
+    
+}
+
+@keyframes gradient {
+    0% {
+        background:#6d6d6d;
+        color:#fff;
+    }
+}
+
+.wrapper {
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.wrapper * {
+    margin:0;
+    transition:all 300ms ease-in-out;
+}
+
+.postWrap {
+    margin-bottom:32px;
+    transition:all 300ms ease-in-out;
+}
+
+.posts {
+    min-height:600px;
+}
+
+.postTitle {
+    color:#e5e5e5;
+    font-size:20px;
+    font-weight:400;
+    border-bottom: 1px solid #e5e5e5;
+    display: inline-block;
+}
+
+.postTitle a {
+    color: #e5e5e5;
+    text-decoration: none;
+}
+
+.postDesc {
+    color:#8a8a8a;
+    font-size:16px;
+    max-width:500px;
+}
+
+.postDate {
+    margin-top:8px;
+    color:#484848;
+    font-size:16px;
+}
+
+.pageNumber * {
+    color :#fff;
+}
+
+.pageNumber {
+    display: flex;
+    gap: 100px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pageNumberButton{
+    width: 30px;
+    height: 30px;
+    line-height: 27px;
+    text-align: center;
+    text-decoration: none;
+    background: #6d6d6d;
+    border-radius: 50%;
+}
+
+.clicked {
+    animation:gradient 300ms;
+    background:#3f3f3f;
+    color:#cccccc;
+}

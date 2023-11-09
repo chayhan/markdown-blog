@@ -93,30 +93,10 @@ body * {
     
 }
 
-footer {
-    width:100%;
-    bottom:0;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    background: var(--footer-background);
-    display:flex;
-    flex-direction: column;
-    gap:6px;
-    align-items: center;
-    justify-content: center;
-    height: 80px;
-    flex-shrink: 0;
+.nav-container {
+    background: #191919;
 }
 
-footer p {
-    margin:0;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
 
 ::-webkit-scrollbar {
     width:5px;

@@ -30,7 +30,7 @@
     list-style: none;
     font-size: 20px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 500;
     margin:0;
     padding:0;
 }
@@ -42,7 +42,7 @@
 }
 
 .list * {
-    color:var(--third-white);
+    color:var(--primary-white);
     text-decoration: none;
 }
 
