@@ -25,14 +25,14 @@
 }
 
 .title {
-    color: #DADADA;
+    color: var(--black);
     font-size: 32px;
     font-style: normal;
     font-weight: 400;
 }
 
 .date {
-    color: #5A5A5A;
+    color: var(--whitegray);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -43,12 +43,12 @@
     position:relative;
     width:100%;
     height: 1px;
-    background-color:#909090;
+    background-color:var(--gray);
     animation:stretchRight 1000ms;
 }
 
 .markdown {
-    color:var(--primary-white);
+    color:var(--black-weak);
     animation:fadeout 300ms;
     font-size:18px;
     font-weight:400;
@@ -65,9 +65,10 @@
 }
 
 .markdown h1 {
+    color: var(--black);
     font-size: 32px;
     font-weight:600;
-    border-bottom:1px solid #909090;
+    border-bottom:1px solid var(--gray);
     margin-top:24px;
     margin-bottom:12px;
 }
@@ -81,9 +82,10 @@
 }
 
 .markdown h2 {
+    color: var(--black);
     font-size:28px;
     font-weight:600;
-    border-bottom:1px solid #383838;
+    border-bottom:1px solid var(--whitegray);
     margin-top:24px;
     margin-bottom:12px;
 }
@@ -93,6 +95,7 @@
 }
 
 .markdown h3 {
+    color: var(--black);
     font-weight:600;
     font-size:22px;
     margin-top:12px;
@@ -104,6 +107,7 @@
 }
 
 .markdown h4 {
+    color: var(--black);
     font-weight:600;
     font-size:20px;
     margin-top:12px;
@@ -120,12 +124,12 @@
 }
 
 .markdown blockquote {
-    border-left: 5px solid var(--primary-white);
+    border-left: 5px solid var(--gray);
     padding-left: 10px;
 }
 
 .markdown pre {
-    color:var(--secondary-white);
+    color:var(--gray);
     border-radius: 6px;
     /* border: 1px solid var(--primary-gray); */
     padding: 10px;
@@ -178,7 +182,7 @@
 }
 
 .markdown image-desc {
-    color:var(--secondary-gray);
+    color:var(--gray-weak);
     font-style:italic;
     font-size:14px;
     margin:8px 0;

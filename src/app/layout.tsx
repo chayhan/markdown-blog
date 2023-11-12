@@ -5,6 +5,7 @@ import { prefix, isDebug } from "@/config";
 import 'prismjs/themes/prism-tomorrow.css';
 import Navbar from "@/app/Navbar";
 import Footer from "./Footer";
+import SideMenu from "@/components/SideMenu";
 
 const font = Noto_Sans_KR({ subsets: ["latin", "latin-ext"] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning={isDebug}>
       <body className={font.className}>
+        <SideMenu />
         <div id="body-wrapper">
           {navbar}
           {children}
