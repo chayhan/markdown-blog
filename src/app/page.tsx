@@ -1,6 +1,6 @@
 import Postlist from "./Postlist";
 import styles from "./page.module.css";
-import { getArticleList } from "@/ts/Markdown";
+import { getArticleList } from "@/ts/article";
 
 export default function Page() {
   return <div className={styles.mainWrap}>

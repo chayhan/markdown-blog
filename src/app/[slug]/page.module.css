@@ -19,7 +19,7 @@
 }
 
 .wrap {
-    max-width:800px;
+    width:800px;
     margin:10px auto;
     margin-bottom:60px;
 }
@@ -28,7 +28,8 @@
     color: var(--black);
     font-size: 32px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
+    line-height: 50px;
 }
 
 .date {
@@ -48,7 +49,7 @@
 }
 
 .markdown {
-    color:var(--black-weak);
+    /* color:var(--black-weak); */
     animation:fadeout 300ms;
     font-size:18px;
     font-weight:400;
@@ -151,6 +152,7 @@
     padding: 0;
     background-color: transparent;
     font-weight:normal;
+    font-size:17px;
 }
 
 .markdown ul {
@@ -188,19 +190,9 @@
     margin:8px 0;
 }
 
-@media all and (min-width:1400px) {
-}
-
-@media all and (min-width:850px) and (max-width:1400px) {
-}
-
-@media all and (max-width:849px) {
-    .contentWrap {
-        padding-left:20px;
-        padding-right:20px;
-    }
-    .headerWrap > div {
-        padding-left:20px;
-        padding-right:20px;
+@media all and (max-width:860px) {
+    .wrap {
+        width:90vw;
+        padding:0 20px;
     }
 }

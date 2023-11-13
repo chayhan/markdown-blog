@@ -3,9 +3,11 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import { prefix, isDebug } from "@/config";
 import 'prismjs/themes/prism-tomorrow.css';
+import styles from "./layout.module.css";
 import Navbar from "@/app/Navbar";
 import Footer from "./Footer";
 import SideMenu from "@/components/SideMenu";
+import Toc from "@/components/Toc";
 
 const font = Noto_Sans_KR({ subsets: ["latin", "latin-ext"] });
 
@@ -31,13 +33,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" suppressHydrationWarning={isDebug}>
-      <body className={font.className}>
-        <SideMenu />
-        <div id="body-wrapper">
-          {navbar}
-          {children}
+      <body className={`${font.className} ${styles.layout}`}>
+        <div id={styles.layout}>
+          <SideMenu />
+          <div id={styles.contentWrap}>
+            <div id={styles.content}>
+              <div>
+                {navbar}
+                <div id={styles.contentWrapper}>
+                  {children}
+                </div>
+              </div>
+              <Toc />
+            </div>
+            <Footer />
+          </div>
         </div>
-        <Footer />
       </body>
     </html>
   );

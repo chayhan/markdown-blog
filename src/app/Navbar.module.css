@@ -1,5 +1,13 @@
+@keyframes themeChange {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .nav {
-    max-width:var(--max-width);
     display:flex;
     flex-wrap:wrap;
     margin:0 auto;
@@ -8,98 +16,53 @@
     padding-bottom:16px;
     flex-shrink: 0;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
-.nav .logo {
-    display: flex;
-    gap: 10px;
-    flex-direction: row;
-    align-items: flex-end;
+.home {
+    display: none;
+
     color:var(--black);
     text-decoration: none;
+
     font-size: 28px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
+    font-weight: 800;
 }
 
-.list {
-    display:flex;
-    flex-direction: row;
-    list-style: none;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    margin:0;
-    padding:0;
-}
-
-.lineBreak {
-    display:none;
-    width:100%;
-    height:10px;
-}
-
-.list * {
-    color:var(--primary-white);
-    text-decoration: none;
-}
-
-.collapseButton {
-    display:none;
-    background: none;
-    border: none;
+.themeChanger {
+    background: var(--black);
+    display: flex;
+    border-radius: 50%;
+    border: 3px solid;
+    flex-direction: column;
     cursor:pointer;
-    color: var(--primary-white);
+    align-items: center;
+    justify-content: center;
+    animation:themeChange 300ms ease-in-out;
+    width:30px;
+    height:30px;
 }
 
-.collapseButton::after {
-    content:'\2630';
-    font-size: 32px;
-    font-weight: 900;
+.themeChanger.dark {
+    color:rgb(255, 166, 0);
 }
 
-@media all and (min-width:1400px) {
-    .list {
-        gap:70px;
-    }
+.themeChanger.light {
+    color:rgb(158, 107, 13);
 }
 
-@media all and (min-width:850px) and (max-width:1400px) {
-    .list {
-        gap:20px;
-    }
-}
-
-@media all and (max-width:849px) {
-    .hidden {
-        max-height:0;
-    }
-    .list {
-        flex-direction:column;
-        gap:10px;
-        overflow:hidden;
-        transition:all 0.2s ease-out;
-    }
-    .lineBreak {
-        display:block;
-        transition:all 0.2s ease-out;
-    }
-    .collapseButton {
+@media all and (max-width:1400px) {
+    .home {
         display:block;
     }
     .nav {
-        padding-left:20px;
-        padding-right:20px;
-    }
-    .nav .logoCharacter {
-        display:none;
+        justify-content: space-between;
     }
 }
 
-@media (prefers-color-scheme: light) {
-    .githubIcon {
-        filter:brightness(0);
+@media all and (max-width:860px) {
+    .nav {
+        width: 90vw;
+        padding: 0 20px;
     }
 }

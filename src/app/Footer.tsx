@@ -2,8 +2,12 @@ import { prefix } from "@/config";
 import Image from "next/image";
 import styles from "./Footer.module.css";
 
-export default function Footer() {
-  return <footer className={styles.footer}>
+interface FooterParams {
+  className?:string
+}
+
+export default function Footer(params:FooterParams) {
+  return <footer className={`${styles.footer} ${params.className}`}>
     <div className={styles.footerWrap}>
       <p className={styles.supportLog}>
         Support me by following on 

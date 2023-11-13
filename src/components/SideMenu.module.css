@@ -1,9 +1,9 @@
 .wrap {
-    position:fixed;
-    padding-top:16px;
+    position:sticky;
     padding-left:50px;
     width:400px;
-    height:100%;
+    top:0px;
+    height:100vh;
     background:var(--menu-background-color);
     backdrop-filter:blur(10px);
 }
@@ -20,6 +20,8 @@
 .logoCharacter {
     top:30px;
     left:70px;
+    width:152px;
+    margin-top:30px;
     margin-bottom:50px;
     display: block;
     flex-direction: row;
@@ -75,4 +77,11 @@
 
 .links *:hover {
     color:var(--gray);
+}
+
+@media all and (max-width:1400px) {
+    .wrap {
+        position:fixed;
+        display:none;
+    }
 }

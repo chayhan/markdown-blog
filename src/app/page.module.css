@@ -40,3 +40,10 @@
     margin-top:20px;
     margin-bottom:20px;
 }
+
+@media all and (max-width:860px) {
+    .mainWrap {
+        width:90vw;
+        padding:0 20px;
+    }
+}

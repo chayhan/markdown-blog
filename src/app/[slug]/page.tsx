@@ -4,7 +4,7 @@ import "./Markdown.css";
 // load local data
 import { prefix } from "@/config";
 // load dependencies
-import { getArticleList, fetchArticle } from "@/ts/Markdown";
+import { getArticleList, fetchArticle } from "@/ts/article";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "rehype-prism-plus";

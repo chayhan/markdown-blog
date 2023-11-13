@@ -2,7 +2,7 @@
 
 import styles from "./Postlist.module.css";
 import { useSearchParams } from "next/navigation";
-import { Article } from "@/ts/Markdown";
+import { Article } from "@/ts/article";
 
 import Link from "next/link";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';

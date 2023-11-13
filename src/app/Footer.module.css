@@ -15,8 +15,8 @@
 }
 
 .footerWrap {
-    width:800px;
     margin: auto;
+    max-width:800px;
     padding-top:15px;
 }
 
@@ -44,14 +44,8 @@
     margin:0 5px;
 }
 
-@media all and (min-width:1400px) {
-}
-
-@media all and (min-width:850px) and (max-width:1400px) {
-}
-
-@media all and (max-width:849px) {
-    .footer {
+@media all and (max-width:860px) {
+    .footerWrap {
         padding-left:10px;
         padding-right:10px;
     }

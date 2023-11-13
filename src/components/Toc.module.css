@@ -1,0 +1,15 @@
+
+@media all and (min-width:1600px) {
+    .wrap {
+        width: 300px;
+        position: sticky;
+        top: 90px;
+    }
+
+}
+
+@media all and (max-width:1600px) {
+    .wrap {
+        display:none;
+    }
+}
