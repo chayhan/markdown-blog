@@ -39,7 +39,7 @@
 
 .postDesc {
     color:var(--gray);
-    font-size:16px;
+    font-size:17px;
     max-width:500px;
 }
 
@@ -66,12 +66,23 @@
     line-height: 27px;
     text-align: center;
     text-decoration: none;
-    color:var(--black);
-    background: var(--whitegray-weak);
-    border-radius: 50%;
+    color:var(--gray);
+    font-size:20px;
+    font-weight:700;
 }
 
 .clicked {
-    background:var(--whitegray);
     color:var(--black);
+    font-size:22px;
+}
+
+@media all and (max-width:860px) {
+    .postTitle {
+        font-size: 19px;
+    }
+    
+    .postDesc {
+        font-size: 16px;
+    }
+    
 }

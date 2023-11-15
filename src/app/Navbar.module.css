@@ -51,18 +51,11 @@
     color:rgb(158, 107, 13);
 }
 
-@media all and (max-width:1400px) {
+@media all and (max-width:800px) {
     .home {
         display:block;
     }
     .nav {
         justify-content: space-between;
-    }
-}
-
-@media all and (max-width:860px) {
-    .nav {
-        width: 90vw;
-        padding: 0 20px;
     }
 }

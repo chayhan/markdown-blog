@@ -19,7 +19,8 @@
 }
 
 .wrap {
-    width:800px;
+    width:100%;
+    max-width:800px;
     margin:10px auto;
     margin-bottom:60px;
 }
@@ -33,7 +34,7 @@
 }
 
 .date {
-    color: var(--whitegray);
+    color: var(--gray-weak);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -190,9 +191,31 @@
     margin:8px 0;
 }
 
-@media all and (max-width:860px) {
-    .wrap {
-        width:90vw;
-        padding:0 20px;
+@media all and (max-width:800px) {
+    .markdown { 
+        font-size:17px;
+
+    }
+    .markdown p {
+        margin-bottom:10px;
+        line-height:28px;
+    }
+    .markdown ul, .markdown ol {
+        padding-left:22px;
+    }
+    .title {
+        font-size:26px;
+    }
+    .markdown h1 {
+        font-size:24px;
+    }
+    .markdown h2 {
+        font-size:22px;
+    }
+    .markdown h3 {
+        font-size:20px;
+    }
+    .markdown h4, .markdown h5, .markdown h6 {
+        font-size:18px;
     }
 }

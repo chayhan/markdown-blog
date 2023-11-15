@@ -64,7 +64,7 @@ body {
     margin:0;
 }
 
-body * {
+body, body * {
     transition:background 300ms ease-in-out;
 }
 
