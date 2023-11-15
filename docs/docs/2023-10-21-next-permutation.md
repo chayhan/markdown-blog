@@ -35,7 +35,7 @@ description : "알고리즘을 하다보면 저희가 모든 경우의 수를 �
 
 해당 문제는 응용입니다. 문제를 풀고 밑부분을 참고하세요.
 
-- [[ 백준 18809 ] Gaaaaarden : C++ 풀이](https://johannblue.github.io/markdown-blog/13)
+- [[ 백준 18809 ] Gaaaaarden : C++ 풀이](https://chayhan.github.io/markdown-blog/2023-10-20-boj18809)
 
 
 ### 활용 설명
