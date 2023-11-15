@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase:new URL("https://chayhan.github.io/markdown-blog"),
   description: "개발자 chayhan 의 블로그 입니다.",
   openGraph:{
-    siteName:"chayhan's Blog",
+    siteName:"chayhan's blog",
     title:"chay의 깃허브 블로그",
     description:"chayhan.github.io 블로그",
     images:`${prefix}/ogimage.png`,

@@ -21,7 +21,12 @@ interface SlugPageParams {
   params:StaticParams;
 }
 
-export const metadata:Metadata = {};
+export const metadata:Metadata = {
+  openGraph : {
+    images:`${prefix}/ogimage.png`,
+    siteName:"chayhan's blog",
+  }
+};
 
 export default function SlugPage(params:SlugPageParams) {
   const { slug } = params.params;
@@ -35,7 +40,6 @@ export default function SlugPage(params:SlugPageParams) {
   metadata.openGraph = {
     title : articleData.article.title,
     description:articleData.article.description,
-    
   }
 
   return <div className={styles.wrap}>
