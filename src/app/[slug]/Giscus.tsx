@@ -3,7 +3,7 @@ import Giscus from "@giscus/react";
 
 export default function GiscusComponent() {
   return <Giscus
-    repo="johannblue/markdown-blog"
+    repo="chayhan/markdown-blog"
     repoId="R_kgDOKUiJsQ"
     category="comments"
     categoryId="DIC_kwDOKUiJsc4CaU5s"

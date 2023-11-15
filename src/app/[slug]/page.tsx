@@ -2,7 +2,7 @@ import styles from "./page.module.css";
 import "./Markdown.css";
 
 // load local data
-import { prefix } from "@/config";
+import { SITE_TITLE_SUFFIX, prefix } from "@/config";
 // load dependencies
 import { getArticleList, fetchArticle } from "@/ts/article";
 import Markdown from "react-markdown";
@@ -11,6 +11,7 @@ import rehypePrism from "rehype-prism-plus";
 import Giscus from "./Giscus";
 import Image from "next/image";
 import path from "node:path";
+import { Metadata } from "next";
 
 interface StaticParams {
   slug: string;
@@ -20,12 +21,21 @@ interface SlugPageParams {
   params:StaticParams;
 }
 
+export const metadata:Metadata = {};
+
 export default function SlugPage(params:SlugPageParams) {
   const { slug } = params.params;
   const articleData = fetchArticle(slug);
-  
+
   if(articleData == null) {
     return <></>;
+  }
+
+  metadata.title = articleData.article.title + SITE_TITLE_SUFFIX;
+  metadata.openGraph = {
+    title : articleData.article.title,
+    description:articleData.article.description,
+    
   }
 
   return <div className={styles.wrap}>
