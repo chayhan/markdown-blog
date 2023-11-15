@@ -1,5 +1,5 @@
 
-@media all and (min-width:1600px) {
+@media all and (min-width:1400px) {
     .wrap {
         width: 300px;
         position: sticky;
@@ -8,7 +8,7 @@
 
 }
 
-@media all and (max-width:1600px) {
+@media all and (max-width:1400px) {
     .wrap {
         display:none;
     }
