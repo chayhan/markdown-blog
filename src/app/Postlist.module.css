@@ -28,7 +28,10 @@
     color:var(--black);
     font-size:20px;
     font-weight:400;
-    border-bottom: 1px solid var(--black);
+    text-decoration:underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 0;
+    /* border-bottom: 1px solid var(--black); */
     display: inline-block;
 }
 
@@ -55,9 +58,8 @@
 
 .pageNumber {
     display: flex;
-    gap: 100px;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .pageNumberButton{

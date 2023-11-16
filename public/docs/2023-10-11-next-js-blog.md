@@ -57,3 +57,5 @@ children: JSX.Element|JSX.Element[];
 
 
 이렇게 3가지가 있는데, React.ReactNode를 사용하면 `string`, `number`를 비롯한 JSX 노드들을 중복/단일 상관없이 받기 때문에, `React.ReactNode` 를 사용하면 됩니다.
+
+> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!
