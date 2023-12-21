@@ -10,22 +10,22 @@
     "deploy": "touch docs/.nojekyll && git add -f docs/ && git commit -m \"deploy to github page\" && git push"
   },
   "dependencies": {
-    "@giscus/react": "^2.3.0",
+    "@giscus/react": "^2.4.0",
     "dotenv": "^16.3.1",
     "image-size": "^1.0.2",
     "next": "latest",
     "prismjs": "^1.29.0",
     "react": "latest",
     "react-dom": "latest",
-    "react-markdown": "^9.0.0",
+    "react-markdown": "^9.0.1",
     "sharp": "^0.32.6"
   },
   "devDependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.14.16",
+    "@mui/icons-material": "^5.15.1",
     "@types/node": "latest",
-    "@types/prismjs": "^1.26.1",
+    "@types/prismjs": "^1.26.3",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "eslint": "latest",
