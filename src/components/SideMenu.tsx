@@ -12,9 +12,21 @@ export default function SideMenu() {
     <div className={styles.title}>Chayhan’s blog</div>
     <div className={styles.desc}>이 녀석에게 친추 줘서 무료로 훈수 주기</div>
     <div className={styles.links}>
-      <div>Github</div>
-      <div>Discord</div>
-      <div>Solved.ac</div>
+      <div>
+        <Link href="https://github.com/chayhan">
+          Github
+        </Link>
+      </div>
+      <div>
+        <Link href="https://discord.gg/w8xnMDgcxA">
+          Discord
+        </Link>
+      </div>
+      <div>
+        <Link href="https://solved.ac/profile/blu3fishez">
+          Solved.ac
+        </Link>
+      </div>
     </div>
   </div>
 }

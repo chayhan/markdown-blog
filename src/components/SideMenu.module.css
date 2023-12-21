@@ -64,16 +64,18 @@
 .links {
     display: flex;
     gap: 10px;
-    font-size: 18px;
-    color: var(--black-weak);
+    
     flex-direction: column;
     align-items: flex-start;
     
 }
 
 .links * {
+    font-size: 18px;
+    color: var(--black-weak);
     transition:all 300ms ease-in-out;
     cursor:pointer;
+    text-decoration: none;
 }
 
 .links *:hover {
@@ -82,7 +84,7 @@
 
 @media all and (max-width:1400px) {
     .wrap {
-        width:200px;
+        width:160px;
     }
 }
 
