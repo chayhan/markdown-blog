@@ -51,7 +51,7 @@
     color:rgb(158, 107, 13);
 }
 
-@media all and (max-width:800px) {
+@media all and (max-width:1000px) {
     .home {
         display:block;
     }

@@ -131,6 +131,7 @@
 }
 
 .markdown pre {
+    overflow-x:auto;
     color:var(--gray);
     border-radius: 6px;
     /* border: 1px solid var(--primary-gray); */
@@ -191,9 +192,9 @@
     margin:8px 0;
 }
 
-@media all and (max-width:800px) {
+@media all and (max-width:1000px) {
     .markdown { 
-        font-size:17px;
+        font-size:16px;
 
     }
     .markdown p {

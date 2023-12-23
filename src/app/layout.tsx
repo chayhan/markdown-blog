@@ -31,46 +31,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
   
   const codeThemeCheck = `
+    
     const localTheme = localStorage.getItem("theme");
-    const root = document.querySelector(":root");
-    const DARK_THEME_VAR = {
-      '--main-background-color':'#1C1C1C',
-      '--menu-background-color':'#181818',
-      '--black': '#d9d9d9',
-      '--black-weak': '#c7c7c7',
-      '--gray': '#909090',
-      '--gray-weak':'#7c7c7c',
-      '--whitegray':'#5A5A5A',
-      '--whitegray-weak':'rgb(71, 71, 71)',
-      '--navbar-background-color':'#161616',
-      '--code-background':'#2b2b2b',
-    };
-    
-    const LIGHT_THEME_VAR = {
-      '--main-background-color':'#f0f0f0',
-      '--menu-background-color':'#ebebeb',
-      '--black': '#1d1d1d',
-      '--black-weak': '#2b2b2b',
-      '--gray': '#737373',
-      '--gray-weak':'#919191',
-      '--whitegray':'#a5a5a5',
-      '--whitegray-weak':'rgb(209, 209, 209)',
-      '--navbar-background-color':'#fafafa',
-      '--code-background':'#e3eaf2',
-    };
 
-    if(localTheme == "dark" || (!localTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-      for(let key in DARK_THEME_VAR) {
-        root.style.setProperty(key, DARK_THEME_VAR[key]);
-      }
+    if(!localTheme) {
+      localTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      localStorage.setItem("theme", localTheme);
     }
 
-    else {
-      for(let key in LIGHT_THEME_VAR) {
-        root.style.setProperty(key, LIGHT_THEME_VAR[key]);
-      }
+    if(localTheme == "dark") {
+      const html = document.querySelector("html");
+      html.dataset.theme = "dark";
     }
-    
   `
 
   return (

@@ -78,7 +78,7 @@
     font-size:22px;
 }
 
-@media all and (max-width:860px) {
+@media all and (max-width:1000px) {
     .postTitle {
         font-size: 19px;
     }

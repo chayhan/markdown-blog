@@ -1,7 +1,7 @@
 
 @media all and (min-width:1400px) {
     .wrap {
-        width: 300px;
+        width: 180px;
         position: sticky;
         top: 90px;
     }

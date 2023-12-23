@@ -46,7 +46,7 @@
     margin:0 5px;
 }
 
-@media all and (max-width:860px) {
+@media all and (max-width:1000px) {
     .footerWrap {
         padding-left:10px;
         padding-right:10px;
