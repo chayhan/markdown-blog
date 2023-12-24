@@ -2,7 +2,7 @@ html {
     --mobile-width:850px;
     --nav-height:40px;
     --footer-background:rgba(0, 0, 0, 0.2);
-
+/* 
     --main-background-color:#f0f0f0;
     --menu-background-color:#ebebeb;
     --black: #1d1d1d;
@@ -12,7 +12,7 @@ html {
     --whitegray:#a5a5a5;
     --whitegray-weak:rgb(209, 209, 209);
     --navbar-background-color:#fafafa;
-    --code-background:#e3eaf2;
+    --code-background:#e3eaf2; */
 }
 
 html[data-theme="light"] {

@@ -31,30 +31,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
   
   const codeThemeCheck = `
-    
     const localTheme = localStorage.getItem("theme");
-
     if(!localTheme) {
       localTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       localStorage.setItem("theme", localTheme);
     }
-
+    
     if(localTheme == "dark") {
       const html = document.querySelector("html");
       html.dataset.theme = "dark";
+      console.log("set to dark from script tag");
     }
-  `
+  `;
 
   return (
     <html lang="en" suppressHydrationWarning={isDebug}>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: codeThemeCheck }}>
-          {
-            // local storage 에 따른 다크모드 또는 라이트모드 일 경우 html 로딩 전에 배경색을 바꿔준다.
-          }
-        </script>
-      </head>
       <body className={`${font.className} ${styles.layout}`}>
+        <script type="text/javascript" dangerouslySetInnerHTML={{ __html: codeThemeCheck}}></script>
         <div id={styles.layout}>
           <SideMenu />
           <div id={styles.contentWrap}>
