@@ -52,7 +52,7 @@
 .markdown {
     /* color:var(--black-weak); */
     animation:fadeout 300ms;
-    font-size:18px;
+    font-size:17px;
     font-weight:400;
     padding-bottom:32px;
 }
@@ -121,8 +121,8 @@
 }
 
 .markdown p {
-    margin-bottom:12px;
-    line-height:32px;
+    margin-bottom:7px;
+    line-height:27px;
 }
 
 .markdown blockquote {
@@ -198,8 +198,8 @@
 
     }
     .markdown p {
-        margin-bottom:10px;
-        line-height:28px;
+        margin-bottom:6px;
+        line-height:25px;
     }
     .markdown ul, .markdown ol {
         padding-left:22px;

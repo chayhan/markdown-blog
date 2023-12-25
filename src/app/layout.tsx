@@ -31,23 +31,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
   
   const codeThemeCheck = `
-    const localTheme = localStorage.getItem("theme");
+    let localTheme = localStorage.getItem("theme");
     if(!localTheme) {
       localTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       localStorage.setItem("theme", localTheme);
     }
     
-    if(localTheme == "dark") {
-      const html = document.querySelector("html");
-      html.dataset.theme = "dark";
-      console.log("set to dark from script tag");
-    }
-  `;
+    const html = document.querySelector("html");
+    html.dataset.theme = localTheme;`;
 
   return (
     <html lang="en" suppressHydrationWarning={isDebug}>
-      <body className={`${font.className} ${styles.layout}`}>
+      <head>
         <script type="text/javascript" dangerouslySetInnerHTML={{ __html: codeThemeCheck}}></script>
+      </head>
+      
+      <body className={`${font.className} ${styles.layout}`}>
+        
         <div id={styles.layout}>
           <SideMenu />
           <div id={styles.contentWrap}>
