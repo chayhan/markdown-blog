@@ -70,7 +70,7 @@
     color: var(--black);
     font-size: 32px;
     font-weight:600;
-    border-bottom:1px solid var(--gray);
+    /* border-bottom:1px solid var(--gray); */
     margin-top:24px;
     margin-bottom:12px;
 }
@@ -81,13 +81,14 @@
 
 .markdown hr {
     border-bottom: 1px solid var(--primary-gray);
+    margin:20px 0;
 }
 
 .markdown h2 {
     color: var(--black);
     font-size:28px;
     font-weight:600;
-    border-bottom:1px solid var(--whitegray);
+    /* border-bottom:1px solid var(--whitegray); */
     margin-top:24px;
     margin-bottom:12px;
 }
@@ -142,9 +143,9 @@
 }
 
 .markdown code {
-    border-radius: 6px;
+    border-radius: 8px;
     line-height: 1.5;
-    padding:6px;
+    padding:3px 6px;
     background-color: var(--code-background);
     color:var(--secondary-white);
     font-size: 15px;

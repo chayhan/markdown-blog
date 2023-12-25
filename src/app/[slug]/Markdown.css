@@ -1,5 +1,5 @@
-body[data-theme="light"] code[class*="language-"],
-body[data-theme="light"] pre[class*="language-"] {
+html[data-theme="light"] code[class*="language-"],
+html[data-theme="light"] pre[class*="language-"] {
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -21,195 +21,195 @@ body[data-theme="light"] pre[class*="language-"] {
 	hyphens: none;
 }
 
-body[data-theme="light"] code[class*="language-"]::-moz-selection,
-body[data-theme="light"] pre[class*="language-"]::-moz-selection,
-body[data-theme="light"] code[class*="language-"] ::-moz-selection,
-body[data-theme="light"] pre[class*="language-"] ::-moz-selection {
+html[data-theme="light"] code[class*="language-"]::-moz-selection,
+html[data-theme="light"] pre[class*="language-"]::-moz-selection,
+html[data-theme="light"] code[class*="language-"] ::-moz-selection,
+html[data-theme="light"] pre[class*="language-"] ::-moz-selection {
 	background: #cceae7;
 	color: #263238;
 }
 
-body[data-theme="light"] code[class*="language-"]::selection,
-body[data-theme="light"] pre[class*="language-"]::selection,
-body[data-theme="light"] code[class*="language-"] ::selection,
-body[data-theme="light"] pre[class*="language-"] ::selection {
+html[data-theme="light"] code[class*="language-"]::selection,
+html[data-theme="light"] pre[class*="language-"]::selection,
+html[data-theme="light"] code[class*="language-"] ::selection,
+html[data-theme="light"] pre[class*="language-"] ::selection {
 	background: #cceae7;
 	color: #263238;
 }
 
-body[data-theme="light"] :not(pre) > code[class*="language-"] {
+html[data-theme="light"] :not(pre) > code[class*="language-"] {
 	white-space: normal;
 	border-radius: 0.2em;
 	padding: 0.1em;
 }
 
-body[data-theme="light"] pre[class*="language-"] {
+html[data-theme="light"] pre[class*="language-"] {
 	overflow: auto;
 	position: relative;
 	margin: 0.5em 0;
 	padding: 1.25em 1em;
 }
 
-body[data-theme="light"] .language-css > code,
-body[data-theme="light"] .language-sass > code,
-body[data-theme="light"] .language-scss > code {
+html[data-theme="light"] .language-css > code,
+html[data-theme="light"] .language-sass > code,
+html[data-theme="light"] .language-scss > code {
 	color: #f76d47;
 }
 
-body[data-theme="light"] [class*="language-"] .namespace {
+html[data-theme="light"] [class*="language-"] .namespace {
 	opacity: 0.7;
 }
 
-body[data-theme="light"] .token.atrule {
+html[data-theme="light"] .token.atrule {
 	color: #7c4dff;
 }
 
-body[data-theme="light"] .token.attr-name {
+html[data-theme="light"] .token.attr-name {
 	color: #39adb5;
 }
 
-body[data-theme="light"] .token.attr-value {
+html[data-theme="light"] .token.attr-value {
 	color: #f6a434;
 }
 
-body[data-theme="light"] .token.attribute {
+html[data-theme="light"] .token.attribute {
 	color: #f6a434;
 }
 
-body[data-theme="light"] .token.boolean {
+html[data-theme="light"] .token.boolean {
 	color: #7c4dff;
 }
 
-body[data-theme="light"] .token.builtin {
+html[data-theme="light"] .token.builtin {
 	color: #39adb5;
 }
 
-body[data-theme="light"] .token.cdata {
+html[data-theme="light"] .token.cdata {
 	color: #39adb5;
 }
 
-body[data-theme="light"] .token.char {
+html[data-theme="light"] .token.char {
 	color: #39adb5;
 }
 
-body[data-theme="light"] .token.class {
+html[data-theme="light"] .token.class {
 	color: #39adb5;
 }
 
-body[data-theme="light"] .token.class-name {
+html[data-theme="light"] .token.class-name {
 	color: #6182b8;
 }
 
-body[data-theme="light"] .token.comment {
+html[data-theme="light"] .token.comment {
 	color: #aabfc9;
 }
 
-body[data-theme="light"] .token.constant {
+html[data-theme="light"] .token.constant {
 	color: #7c4dff;
 }
 
-body[data-theme="light"] .token.deleted {
+html[data-theme="light"] .token.deleted {
 	color: #e53935;
 }
 
-body[data-theme="light"] .token.doctype {
+html[data-theme="light"] .token.doctype {
 	color: #aabfc9;
 }
 
-body[data-theme="light"] .token.entity {
+html[data-theme="light"] .token.entity {
 	color: #e53935;
 }
 
-body[data-theme="light"] .token.function {
+html[data-theme="light"] .token.function {
 	color: #7c4dff;
 }
 
-body[data-theme="light"] .token.hexcode {
+html[data-theme="light"] .token.hexcode {
 	color: #f76d47;
 }
 
-body[data-theme="light"] .token.id {
+html[data-theme="light"] .token.id {
 	color: #7c4dff;
 	font-weight: bold;
 }
 
-body[data-theme="light"] .token.important {
+html[data-theme="light"] .token.important {
 	color: #7c4dff;
 	font-weight: bold;
 }
 
-body[data-theme="light"] .token.inserted {
+html[data-theme="light"] .token.inserted {
 	color: #39adb5;
 }
 
-body[data-theme="light"] .token.keyword {
+html[data-theme="light"] .token.keyword {
 	color: #7c4dff;
 }
 
-body[data-theme="light"] .token.number {
+html[data-theme="light"] .token.number {
 	color: #f76d47;
 }
 
-body[data-theme="light"] .token.operator {
+html[data-theme="light"] .token.operator {
 	color: #39adb5;
 }
 
-body[data-theme="light"] .token.prolog {
+html[data-theme="light"] .token.prolog {
 	color: #aabfc9;
 }
 
-body[data-theme="light"] .token.property {
+html[data-theme="light"] .token.property {
 	color: #39adb5;
 }
 
-body[data-theme="light"] .token.pseudo-class {
+html[data-theme="light"] .token.pseudo-class {
 	color: #f6a434;
 }
 
-body[data-theme="light"] .token.pseudo-element {
+html[data-theme="light"] .token.pseudo-element {
 	color: #f6a434;
 }
 
-body[data-theme="light"] .token.punctuation {
+html[data-theme="light"] .token.punctuation {
 	color: #39adb5;
 }
 
-body[data-theme="light"] .token.regex {
+html[data-theme="light"] .token.regex {
 	color: #6182b8;
 }
 
-body[data-theme="light"] .token.selector {
+html[data-theme="light"] .token.selector {
 	color: #e53935;
 }
 
-body[data-theme="light"] .token.string {
+html[data-theme="light"] .token.string {
 	color: #f6a434;
 }
 
-body[data-theme="light"] .token.symbol {
+html[data-theme="light"] .token.symbol {
 	color: #7c4dff;
 }
 
-body[data-theme="light"] .token.tag {
+html[data-theme="light"] .token.tag {
 	color: #e53935;
 }
 
-body[data-theme="light"] .token.unit {
+html[data-theme="light"] .token.unit {
 	color: #f76d47;
 }
 
-body[data-theme="light"] .token.url {
+html[data-theme="light"] .token.url {
 	color: #e53935;
 }
 
-body[data-theme="light"] .token.variable {
+html[data-theme="light"] .token.variable {
 	color: #e53935;
 }
 
 /* =================================== DARK MODE ====================================== */
 
-body[data-theme="dark"] code[class*="language-"],
-body[data-theme="dark"] pre[class*="language-"] {
+html[data-theme="dark"] code[class*="language-"],
+html[data-theme="dark"] pre[class*="language-"] {
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -231,185 +231,185 @@ body[data-theme="dark"] pre[class*="language-"] {
 	hyphens: none;
 }
 
-body[data-theme="dark"] code[class*="language-"]::-moz-selection,
-body[data-theme="dark"] pre[class*="language-"]::-moz-selection,
-body[data-theme="dark"] code[class*="language-"] ::-moz-selection,
-body[data-theme="dark"] pre[class*="language-"] ::-moz-selection {
+html[data-theme="dark"] code[class*="language-"]::-moz-selection,
+html[data-theme="dark"] pre[class*="language-"]::-moz-selection,
+html[data-theme="dark"] code[class*="language-"] ::-moz-selection,
+html[data-theme="dark"] pre[class*="language-"] ::-moz-selection {
 	background: #363636;
 }
 
-body[data-theme="dark"] code[class*="language-"]::selection,
-body[data-theme="dark"] pre[class*="language-"]::selection,
-body[data-theme="dark"] code[class*="language-"] ::selection,
-body[data-theme="dark"] pre[class*="language-"] ::selection {
+html[data-theme="dark"] code[class*="language-"]::selection,
+html[data-theme="dark"] pre[class*="language-"]::selection,
+html[data-theme="dark"] code[class*="language-"] ::selection,
+html[data-theme="dark"] pre[class*="language-"] ::selection {
 	background: #363636;
 }
 
-body[data-theme="dark"] :not(pre) > code[class*="language-"] {
+html[data-theme="dark"] :not(pre) > code[class*="language-"] {
 	white-space: normal;
 	border-radius: 0.2em;
 	padding: 0.1em;
 }
 
-body[data-theme="dark"] pre[class*="language-"] {
+html[data-theme="dark"] pre[class*="language-"] {
 	overflow: auto;
 	position: relative;
 	margin: 0.5em 0;
 	padding: 1.25em 1em;
 }
 
-body[data-theme="dark"] .language-css > code,
-body[data-theme="dark"] .language-sass > code,
-body[data-theme="dark"] .language-scss > code {
+html[data-theme="dark"] .language-css > code,
+html[data-theme="dark"] .language-sass > code,
+html[data-theme="dark"] .language-scss > code {
 	color: #fd9170;
 }
 
-body[data-theme="dark"] [class*="language-"] .namespace {
+html[data-theme="dark"] [class*="language-"] .namespace {
 	opacity: 0.7;
 }
 
-body[data-theme="dark"] .token.atrule {
+html[data-theme="dark"] .token.atrule {
 	color: #c792ea;
 }
 
-body[data-theme="dark"] .token.attr-name {
+html[data-theme="dark"] .token.attr-name {
 	color: #ffcb6b;
 }
 
-body[data-theme="dark"] .token.attr-value {
+html[data-theme="dark"] .token.attr-value {
 	color: #a5e844;
 }
 
-body[data-theme="dark"] .token.attribute {
+html[data-theme="dark"] .token.attribute {
 	color: #a5e844;
 }
 
-body[data-theme="dark"] .token.boolean {
+html[data-theme="dark"] .token.boolean {
 	color: #c792ea;
 }
 
-body[data-theme="dark"] .token.builtin {
+html[data-theme="dark"] .token.builtin {
 	color: #ffcb6b;
 }
 
-body[data-theme="dark"] .token.cdata {
+html[data-theme="dark"] .token.cdata {
 	color: #80cbc4;
 }
 
-body[data-theme="dark"] .token.char {
+html[data-theme="dark"] .token.char {
 	color: #80cbc4;
 }
 
-body[data-theme="dark"] .token.class {
+html[data-theme="dark"] .token.class {
 	color: #ffcb6b;
 }
 
-body[data-theme="dark"] .token.class-name {
+html[data-theme="dark"] .token.class-name {
 	color: #f2ff00;
 }
 
-body[data-theme="dark"] .token.comment {
+html[data-theme="dark"] .token.comment {
 	color: #616161;
 }
 
-body[data-theme="dark"] .token.constant {
+html[data-theme="dark"] .token.constant {
 	color: #c792ea;
 }
 
-body[data-theme="dark"] .token.deleted {
+html[data-theme="dark"] .token.deleted {
 	color: #ff6666;
 }
 
-body[data-theme="dark"] .token.doctype {
+html[data-theme="dark"] .token.doctype {
 	color: #616161;
 }
 
-body[data-theme="dark"] .token.entity {
+html[data-theme="dark"] .token.entity {
 	color: #ff6666;
 }
 
-body[data-theme="dark"] .token.function {
+html[data-theme="dark"] .token.function {
 	color: #c792ea;
 }
 
-body[data-theme="dark"] .token.hexcode {
+html[data-theme="dark"] .token.hexcode {
 	color: #f2ff00;
 }
 
-body[data-theme="dark"] .token.id {
+html[data-theme="dark"] .token.id {
 	color: #c792ea;
 	font-weight: bold;
 }
 
-body[data-theme="dark"] .token.important {
+html[data-theme="dark"] .token.important {
 	color: #c792ea;
 	font-weight: bold;
 }
 
-body[data-theme="dark"] .token.inserted {
+html[data-theme="dark"] .token.inserted {
 	color: #80cbc4;
 }
 
-body[data-theme="dark"] .token.keyword {
+html[data-theme="dark"] .token.keyword {
 	color: #c792ea;
 }
 
-body[data-theme="dark"] .token.number {
+html[data-theme="dark"] .token.number {
 	color: #fd9170;
 }
 
-body[data-theme="dark"] .token.operator {
+html[data-theme="dark"] .token.operator {
 	color: #89ddff;
 }
 
-body[data-theme="dark"] .token.prolog {
+html[data-theme="dark"] .token.prolog {
 	color: #616161;
 }
 
-body[data-theme="dark"] .token.property {
+html[data-theme="dark"] .token.property {
 	color: #80cbc4;
 }
 
-body[data-theme="dark"] .token.pseudo-class {
+html[data-theme="dark"] .token.pseudo-class {
 	color: #a5e844;
 }
 
-body[data-theme="dark"] .token.pseudo-element {
+html[data-theme="dark"] .token.pseudo-element {
 	color: #a5e844;
 }
 
-body[data-theme="dark"] .token.punctuation {
+html[data-theme="dark"] .token.punctuation {
 	color: #89ddff;
 }
 
-body[data-theme="dark"] .token.regex {
+html[data-theme="dark"] .token.regex {
 	color: #f2ff00;
 }
 
-body[data-theme="dark"] .token.selector {
+html[data-theme="dark"] .token.selector {
 	color: #ff6666;
 }
 
-body[data-theme="dark"] .token.string {
+html[data-theme="dark"] .token.string {
 	color: #a5e844;
 }
 
-body[data-theme="dark"] .token.symbol {
+html[data-theme="dark"] .token.symbol {
 	color: #c792ea;
 }
 
-body[data-theme="dark"] .token.tag {
+html[data-theme="dark"] .token.tag {
 	color: #ff6666;
 }
 
-body[data-theme="dark"] .token.unit {
+html[data-theme="dark"] .token.unit {
 	color: #fd9170;
 }
 
-body[data-theme="dark"] .token.url {
+html[data-theme="dark"] .token.url {
 	color: #ff6666;
 }
 
-body[data-theme="dark"] .token.variable {
+html[data-theme="dark"] .token.variable {
 	color: #ff6666;
 }
