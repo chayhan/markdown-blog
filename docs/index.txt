@@ -1,11 +1,119 @@
 2:"$Sreact.suspense"
 3:I[2703,["93","static/chunks/93-3c33722948fb8147.js","931","static/chunks/app/page-238176a5f1c3a848.js"],""]
-11:I[4632,["93","static/chunks/93-3c33722948fb8147.js","729","static/chunks/729-fcd05f6bcbb192cf.js","185","static/chunks/app/layout-48d80b2056231da9.js"],""]
-12:I[3729,["93","static/chunks/93-3c33722948fb8147.js","729","static/chunks/729-fcd05f6bcbb192cf.js","185","static/chunks/app/layout-48d80b2056231da9.js"],"Image"]
-13:I[7723,["93","static/chunks/93-3c33722948fb8147.js","729","static/chunks/729-fcd05f6bcbb192cf.js","185","static/chunks/app/layout-48d80b2056231da9.js"],""]
-14:I[1949,[],""]
-15:I[881,[],""]
-4:T1ff5,
+12:I[4632,["93","static/chunks/93-3c33722948fb8147.js","729","static/chunks/729-fcd05f6bcbb192cf.js","185","static/chunks/app/layout-4648e76ab1771ff1.js"],""]
+13:I[3729,["93","static/chunks/93-3c33722948fb8147.js","729","static/chunks/729-fcd05f6bcbb192cf.js","185","static/chunks/app/layout-4648e76ab1771ff1.js"],"Image"]
+14:I[7723,["93","static/chunks/93-3c33722948fb8147.js","729","static/chunks/729-fcd05f6bcbb192cf.js","185","static/chunks/app/layout-4648e76ab1771ff1.js"],""]
+15:I[1949,[],""]
+16:I[881,[],""]
+4:Tf76,
+> 개인적으로 공부하면서 정리한 내용입니다. 독학으로 진행하다보니 특정부분은 비정확할 수 있습니다. 그런 부분이 있다면 의견 주시면 고치도록 하겠습니다.
+> 
+
+## 행렬의 연산
+
+```
+A, B, C 가 행렬 이라고 할 때,
+
+a. A + B = B + A
+b. (A + B) + C = A + (B + C)
+c. A + 0 = A
+d. r(A + B) = rA + rB (r은 스칼라)
+e. (r + s)A = rA + sA (r, s는 스칼라)
+f. r(sA) = (rs)A (r, s는 스칼라)
+```
+
+## 행렬곱
+
+행렬에는 곱연산도 있습니다.
+
+```
+A 가 m x n 행렬이고, B 가 n x p 행렬일 때,
+
+A와 B는 곱할 수 있으며, 이 행렬곱 을 AB라고 표현합니다.
+
+이때, AB의 i 행, j 열의 값은,  시그마(1 ~ n) : A의 i행 n열 * B의 n행 j열 입니다.
+
+```
+
+행렬곱 은 선형 변환 조합과 상응 한다고 하는데, 이것도 나중에 배워보겠습니다.
+
+그리고, 위에 보시는 바와 같이 행렬곱은 순서를 바꿔도 값이 동일하지 않습니다. 행렬곱의 순서에 따라 결과값이 달라짐에 유의하세요. (계산 순서는 상관 없음)
+
+```
+예시)
+A(BC) == (AB)C 이나, AB != BA 이다.
+```
+
+## 행렬의 거듭제곱
+
+그냥 행렬을 여러번 곱한 값입니다.
+
+당연히 행렬곱의 정의에 의하면, 행렬의 거듭제곱은 정방행렬만 가능합니다. 정방행렬이란, A_mn 일때, m == n 인 행렬을 이야기 합니다. (행과 열의 개수가 같음)
+
+## 전치행렬
+
+전치행렬이란, 행렬에서 열과 행이 있을 때, 이 열과 행을 거꾸로 뒤집어 놓은 것을 의미합니다.
+
+```
+    | 2 3 4 |
+A = | 5 6 7 | 일때, 특정 요소의 값이 i행 j열에 위치해있다면,
+
+전치행렬 A^T 는 언급한 특정 요소의 값이 j행 i열에 위치해 있습니다.
+
+A^T = | 2 5 |
+      | 3 6 |
+      | 4 7 |
+```
+
+전치행렬의 특성은 아래와 같습니다.
+
+```
+a. (A^T)^T = A
+b. (A + B)^T = A^T + B^T
+c. (AB)^T = B^T * A^T
+```
+
+## 역행렬, 항등행렬, 특이행렬
+
+숫자에도 역수가 있잖아요? 행렬에도 역행렬이라는 게 있습니다.
+
+역수의 정의가 그러하듯, 행렬에서는 곱해서 `항등 행렬` 이 나오게 하는 행렬을 행렬의 역행렬이라고 합니다.
+
+```
+항등행렬이란, 주 대각선 (i == j)의 원소가 1이고, 나머지 원소는 모두 0인 정방 행렬을 뜻합니다.
+```
+
+이때 항등행렬은 `I_n` 이라고 보통 표현하고, n은 행의 크기(=열의 크기)를 뜻합니다.
+
+### 그럼 모든 행렬이 역행렬이 있나요?
+
+아닙니다. 역행렬이 없을 수 있습니다. 역행렬이 존재한다면 해당 행렬은 `가역 행렬` 이라고 하고, 그렇지 않다면 `비 가역 행렬` 이라고 합니다.
+
+우리는 이 `비 가역행렬` 을 `특이 행렬 (singular matrix)` 이라고도 표현합니다. 
+
+### 역행렬 계산하기
+
+우리는 역행렬을 계산할 수도 있습니다. 이때 행렬식이라는게 쓰이는데, 이는 나중에 배우도록 하고, 지금은 `2 x 2` 행렬에 대해 역행렬을 구하는 공식을 알아봅시다.
+
+```
+         | a b |
+행렬 A = | c d | 일 때, ad - bc != 0 이면, A는 가역행렬이다.
+                                    
+                                    | d -b |
+또한 A의 역행렬 A^-1 은, (ad-bc)^1 * | -c a | 이다.
+```
+
+상당히 복잡하지만, 3 x 3 에서는 더 복잡합니다. 이는 다음에 알아보겠습니다.
+
+### 행렬로 2 x 2 연립 방정식 계산하기
+
+행렬이 가역행렬이라면, 해가 존재합니다. (해가 무수히 많거나, 비존재하지 않습니다.)
+
+```
+AX = B 라는 2 x 2 연립 선형방정식을 계산 하는 방법은 다음과 같습니다.
+1. A^-1 이 존재하므로, 양 변에 A^-1 을 맨 앞에 곱해줍니다.
+2. X = A^1 * B 이므로 해당 행렬을 계산하면 X 값을 구할 수 있습니다.
+```5:T1ff5,
 ## 문제 접근
 
 원형 타일채우기 DP 라고 생각하면 쉽다. 발상이 어려워서 플레티넘3 이 아닌가 조심스레 추측한다.
@@ -235,7 +343,7 @@ int main() {
 	}
 
 }
-```5:T1818,
+```6:T1818,
 ## 증상 원인
 
 내 마크다운 블로그를 개발하던 중 이게 왠일?
@@ -347,7 +455,7 @@ React.js에서 Suspense는 비동기 작업을 관리하는 기능입니다. Sus
 
 ```
 
-Suspense는 React v16.6부터 실험적으로 도입되었고, React v18에서 정식으로 지원됩니다. Suspense를 사용하면 컴포넌트의 렌더링을 더 쉽고 세련되게 제어할 수 있습니다. Suspense에 대한 자세한 내용은 [공식 문서](https://react.dev/reference/react/Suspense)나 [이 블로그 포스트](https://www.daleseo.com/react-suspense/)를 참고하세요.6:Tce5,
+Suspense는 React v16.6부터 실험적으로 도입되었고, React v18에서 정식으로 지원됩니다. Suspense를 사용하면 컴포넌트의 렌더링을 더 쉽고 세련되게 제어할 수 있습니다. Suspense에 대한 자세한 내용은 [공식 문서](https://react.dev/reference/react/Suspense)나 [이 블로그 포스트](https://www.daleseo.com/react-suspense/)를 참고하세요.7:Tce5,
 ## 풀이
 
 결국엔 어떻게 돌리느냐는 위 아래 눈이 무엇인지 가 중요 합니다.
@@ -468,7 +576,7 @@ int main() {
 }
 ```
 
-> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!7:T9df,
+> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!8:T9df,
 ## 문제 접근
 
 오프라인 쿼리라는 개념을 알고 접근해보도록 합시다.
@@ -550,7 +658,7 @@ int main() {
 }
 ```
 
-> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!8:T104c,
+> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!9:T104c,
 ## 내가 생각한 솔루션
 
 ### 1. 분리집합
@@ -686,7 +794,7 @@ int main() {
 }
 ```
 
-> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!9:Tdca,
+> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!a:Tdca,
 ## 주의사항
 
 본 문서는 Bing AI로 작성되었으며, 작성자 참고용으로 제작된 문서입니다. 향후 저작권 이슈가 있을 경우 바로 내릴 수 있도록 하겠습니다.
@@ -738,7 +846,7 @@ if (typeof x === "string") {
 
 여기서 `typeof x === "string"`이라는 조건문은 `x`가 string 타입일 때만 참이 되므로, 컴파일러는 이 조건문 안에서 `x`의 타입을 string으로 인식합니다. 따라서 `x.length`를 안전하게 실행할 수 있습니다.
 
-> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!a:T1287,
+> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!b:T1287,
 드로우 온 웹 프로젝트를 현재 `vite + react + typescript`로 진행중입니다.
 
 하다가 문제점이 생긴게, 캔버스 토글을 `animation`을 주면서 껐다켰다하는 기능을 만드는 중이넫 여기서 문제가 생기더라고요
@@ -875,7 +983,7 @@ export function toggleCanvas(params:toggleCanvasParams) {
 
 여기서 더 나아가서 핸들러들을 EventContext의 메소드로 선언해도 가능한지 한번 연구중에 있습니당
 
-> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!b:T827,
+> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!c:T827,
 ## 나의 접근
 
 이분탐색도 생각해보고, 뒤에서부터 진행도 생각해봤는데
@@ -936,7 +1044,7 @@ int main() {
 }
 ```
 
-> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!c:T598,
+> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!d:T598,
 ### 소스 코드
 
 ```cpp
@@ -991,7 +1099,7 @@ int main() {
 }
 ```
 
-> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!d:T1874,
+> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!e:T1874,
 ## 접근
 
 
@@ -1164,7 +1272,7 @@ int main() {
 
 > 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!
 
-e:T13b8,
+f:T13b8,
 ## `next_permutation()` 이란?
 
 알고리즘을 하다보면 저희가 모든 경우의 수를 뽑아서 봐야할 때가 있습니다. 물론 
@@ -1244,7 +1352,7 @@ int main() {
 }
 ```
 
-> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!f:T932,### 소스코드
+> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!10:T932,### 소스코드
 
 ```cpp
 #include<iostream>
@@ -1353,7 +1461,7 @@ int main() {
 }
 ```
 
-> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!10:T93f,## 이미지 가져오기
+> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!11:T93f,## 이미지 가져오기
 
 이미지를 가져오는 건 리액트처럼 그냥 해당  프로젝트 내에서도 가져올 수 있는데 문제는 asset들은 모두 `public` 폴더 를 root로 하기 때문에 해당 폴더 내에만 배치를 해야한다.
 
@@ -1408,6 +1516,6 @@ children: JSX.Element|JSX.Element[];
 
 이렇게 3가지가 있는데, React.ReactNode를 사용하면 `string`, `number`를 비롯한 JSX 노드들을 중복/단일 상관없이 받기 때문에, `React.ReactNode` 를 사용하면 됩니다.
 
-> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!0:["a24zhBtUQbqn9uDoUbObu",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",{"children":["__PAGE__",{},["$L1",["$","div",null,{"className":"page_mainWrap__G2_gf","children":[["$","div",null,{"className":"page_title__3jonF","children":"Posts"}],["$","div",null,{"className":"page_description__86bsR","children":"다양한 주제로 글을 씁니다."}],["$","div",null,{"className":"page_hr__LC6V_"}],["$","$2",null,{"fallback":"loading...","children":["$","$L3",null,{"articleList":[{"slug":"2023-12-26-boj1006","content":"$4","title":"[ 백준 1006 ] 습격자 초라기 : C++ 풀이","date":"$D2023-12-26T00:00:00.000Z","description":"백준 1006번 문제 풀이 입니다.","dateString":"Dec 26, 2023"},{"slug":"2023-12-25-darkmode-flickering","content":"$5","title":"다크모드 테마 시 깜빡거리는 증상","date":"$D2023-12-25T00:00:00.000Z","description":"내가 시스템에서 설정한 테마 색이 먼저 적용이 되고, 그 다음에 다크 모드로 설정된 테마가 나중에 적용되는 현상","dateString":"Dec 25, 2023"},{"slug":"2023-11-16-boj2818","content":"$6","title":"[ 백준 2818 ] 숙제하기 싫을 때 : C++ 풀이","date":"$D2023-11-16T00:00:00.000Z","description":"백준 2818 풀이입니다.","dateString":"Nov 16, 2023"},{"slug":"2023-11-16-boj26087","content":"$7","title":"[ 백준 26087 ] 피보나치와 마지막 수열과 쿼리 : C++ 풀이","date":"$D2023-11-16T00:00:00.000Z","description":"백준 26087 풀이입니다.","dateString":"Nov 16, 2023"},{"slug":"2023-11-15-text-underline","content":"\r\ntext-underline의 상세한 조절이 가능합니다.\r\n\r\n## underline의 굵기 설정\r\n\r\n```css\r\ntext-decoration-thickness: 0;\r\n```\r\n\r\n## underline의 위치 조절\r\n\r\n```css\r\ntext-underline-offset: 5px;\r\n```\r\n\r\n참고할 수 있도록 게시함.\r\n\r\n> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!","title":"[ CSS ] text underline 의 높이 조절, 굵기 설정하기","date":"$D2023-11-15T00:00:00.000Z","description":"text-underline의 상세한 스타일을 조절할 수 있습니다.","dateString":"Nov 15, 2023"},{"slug":"2023-11-12-query-tree","content":"$8","title":"[ 백준 25402 ] 트리와 쿼리 : C++ 풀이","date":"$D2023-11-12T00:00:00.000Z","description":"트리의 특성을 이용한 연결그래프 탐색문제입니다.","dateString":"Nov 12, 2023"},{"slug":"2023-11-03-typescript-interface","content":"$9","title":"[ TS ] 타입스크립트에서 타이핑 하기 귀찮은데요 (Typescript as 키워드)","date":"$D2023-11-03T00:00:00.000Z","description":"TypeScript에서 as 키워드는 타입 단언(type assertion)을 사용하기 위한 것입니다.","dateString":"Nov 3, 2023"},{"slug":"2023-10-31-remove-event","content":"$a","title":"[ React ] 이벤트 탈착할 때 주의 사항","date":"$D2023-10-31T00:00:00.000Z","description":"드로우 온 웹 크롬 익스텐션 사이드 프로젝트 중에 생긴 문제입니다.","dateString":"Oct 31, 2023"},{"slug":"2023-10-25-boj17298","content":"$b","title":"[ 백준 17298 ] 오큰수 : C++ 풀이","date":"$D2023-10-25T00:00:00.000Z","description":"이분탐색도 생각해보고, 뒤에서부터 진행도 생각해봤는데 도저히 감이 잡히질 않아서 주제를 봤더니 스택문제였습니다.","dateString":"Oct 25, 2023"},{"slug":"2023-10-24-boj13330","content":"$c","title":"[ 백준 13330 ] 유사 팰린드롬 : C++ 풀이","date":"$D2023-10-24T00:00:00.000Z","description":"소스코드만 있습니다.","dateString":"Oct 24, 2023"},{"slug":"2023-10-23-boj3697","content":"$d","title":"[ 백준 3697 ] 정상 : C++ 풀이","date":"$D2023-10-23T00:00:00.000Z","description":"d만큼의 높이차가 존재하는 정상들은 모두 정상이다라고 생각을 해서 땅에서부터 그냥 bfs하면 되는것 아닌가 싶은데, 잘못된 방법이였습니다.","dateString":"Oct 23, 2023"},{"slug":"2023-10-21-next-permutation","content":"$e","title":"[ C++ ] 조합, 순열 을 next_permutation() 으로 순회하기","date":"$D2023-10-21T00:00:00.000Z","description":"알고리즘을 하다보면 저희가 모든 경우의 수를 뽑아서 봐야할 때가 있습니다.","dateString":"Oct 21, 2023"},{"slug":"2023-10-20-boj18809","content":"$f","title":"[ 백준 18809 ] Gaaaaarden : C++ 풀이","date":"$D2023-10-20T00:00:00.000Z","description":"소스코드만 있습니다.","dateString":"Oct 20, 2023"},{"slug":"2023-10-14-lis","content":"## 풀이\r\n\r\n풀이는 제 이전 블로그에서 확인 가능합니다.\r\n\r\n## [소스코드 : LIS 3](https://boj.kr/12783)\r\n\r\n```cpp\r\n#include<iostream>\r\nusing namespace std;\r\n\r\nint n, len;\r\n\r\nint arr[1000000];\r\nint lis[1000000];\r\n\r\nint main() {\r\n\tios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);\r\n\tcin >> n;\r\n\r\n\tfor (int i = 0; i < n; ++i) cin >> arr[i];\r\n\r\n\tlen = 1;\r\n\tlis[0] = arr[0];\r\n\t\r\n\tfor (int i = 1; i < n; ++i) {\r\n\t\tint l = 0;\r\n\t\tint h = len;\r\n\t\tint upper_bound = h;\r\n\r\n\t\twhile (l <= h) {\r\n\t\t\tint mid = (l + h) / 2;\r\n\t\t\tif (lis[mid] < arr[i]) {\r\n\t\t\t\tl = mid + 1;\r\n\t\t\t}\r\n\t\t\telse if (lis[mid] >= arr[i]) {\r\n\t\t\t\tupper_bound = mid;\r\n\t\t\t\th = mid - 1;\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tlis[upper_bound] = arr[i];\r\n\t\tif (len == upper_bound) {\r\n\t\t\tlen += 1;\r\n\t\t}\r\n\r\n\t}\r\n\tcout << len;\r\n}\r\n```\r\n\r\n## 주의점\r\n\r\n### `upper bound`를 확실히 구할 것!\r\n\r\n해당 값을 제대로 구했는지 확인할 요소\r\n\r\n1. `while(lo < hi)` 가 아니라 `while(lo <= hi)` 인지\r\n\r\n```\r\n7\r\n4 5 6 1 2 3 4\r\n\r\n정답 : 4\r\n```\r\n\r\n> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!","title":"LIS 알고리즘 개념","date":"$D2023-10-14T00:00:00.000Z","description":"풀이는 제 이전 블로그에서 확인 가능합니다.","dateString":"Oct 14, 2023"},{"slug":"2023-10-12-nojekyll","content":"# `.nojekyll` 설정하기\r\n\r\n이거 때문에 하루를 날려먹었다.\r\n\r\n`gh-pages` 를 통해 호스팅하는 모든 페이지들은 `jekyll` 블로그 설정에 따라 호스팅 되는 경우가 많아, 깃허브에서\r\n자체적으로 `_next` 와 같은 디렉토리를 차단시켜버리는 경향이 있습니다.\r\n\r\n이를 막기위해서 gh-pages에 deploy할 branch의 루트폴더에 `.nojekyll` 이라는 이름의 파일을 두어 깃허브가\r\n해당 정적페이지는 제킬이 아님을 알려주어야 인식이 정상적으로 된다.\r\n\r\n> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!","title":"깃허브 페이지에서 _next/ 폴더에 접근할 수 없는 경우","date":"$D2023-10-12T00:00:00.000Z","description":".nojekyll 설정하기","dateString":"Oct 12, 2023"},{"slug":"2023-10-12-boj11401","content":"## 설명\r\n\r\n일단 이 문제를 풀기 위해선 `페르마의 소정리`와 `모듈러 역원`을 구하는 연산을 할줄 알아야한다.\r\n\r\n\r\n\r\n### 소스코드\r\n\r\n```cpp\r\n#include<iostream>\r\nusing namespace std;\r\n\r\nint n, r;\r\nint fact[4000001];\r\nconst long long MOD = 1000000007;\r\n\r\nlong long getFact(long long n) {\r\n\tif (n == 0) return 1;\r\n\tif (fact[n]) return fact[n];\r\n\treturn fact[n] = n * (long long)getFact(n - 1) % MOD;\r\n}\r\n\r\nlong long power(long long base, int exp) {\r\n\tif (!exp) return 1;\r\n\tlong long i = 1;\r\n\twhile (exp) {\r\n\t\tif (exp % 2) {\r\n\t\t\ti *= base;\r\n\t\t\ti %= MOD;\r\n\t\t\texp--;\r\n\t\t\tcontinue;\r\n\t\t}\r\n\t\tbase *= base;\r\n\t\tbase %= MOD;\r\n\t\texp /= 2;\r\n\t}\r\n\treturn i;\r\n}\r\n\r\nint main() {\r\n\tcin >> n >> r;\r\n\tlong long numer = getFact(n);\r\n\tlong long deno = getFact(r) * getFact(n - r) % MOD;\r\n\tdeno = power(deno, MOD - 2);\r\n\tnumer = numer * deno % MOD;\r\n\tcout << numer;\r\n}\r\n```\r\n\r\n> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!","title":"[ 백준 11401 ] 이항 계수 3 : C++ 풀이","date":"$D2023-10-12T00:00:00.000Z","description":"일단 이 문제를 풀기 위해선 페르마의 소정리와 모듈러 역원을 구하는 연산을 할줄 알아야한다.","dateString":"Oct 12, 2023"},{"slug":"2023-10-11-next-js-blog","content":"$10","title":"[Next.js] 블로그 만들 때 생긴 에러 해결방안들 임시 메모","date":"$D2023-10-11T00:00:00.000Z","description":"이미지 가져오기, 동적 라우팅, 페이지 타이틀 변경 등","dateString":"Oct 11, 2023"},{"slug":"2023-10-11-hello-world","content":"\r\n# 제목1\r\n\r\n## 제목 2\r\n\r\n### 제목 3\r\n\r\n#### 제목 4\r\n\r\n> 인용 태그\r\n\r\n안녕하세요.\r\n\r\n`Code`\r\n\r\n```cpp\r\nprintf(\"code\");\r\n```\r\n\r\n[link](\"/\")\r\n\r\nanything else?\r\n\r\n블로그의 탄생을 축하하며.","title":"Hello, World!","date":"$D2023-10-11T00:00:00.000Z","description":"블로그의 탄생을 축하하며.","dateString":"Oct 11, 2023"},{"slug":"2023-10-11-disjoint-set","content":"분리집합의 구현에 관해서는 `union-find` 방식을 사용하여 구현할 수 있는데, 그 중 UNION 하는 과정에서 주의할 필요가 있다.\r\n\r\n문제를 풀다가 이번에도 같은 방식으로 틀려서 기록하게 되었다.\r\n\r\n```cpp\r\nparent[t1] = p2;\r\n```\r\n\r\n위와 같이 바꾸게 되면, t1의 부모까지 부모값이 p2로 갱신되지 않고 짤리므로 위와 같이 구현하면 안된다.\r\n\r\n따라서 아래와 같이 그냥 부모노드의 부모값을 바꿔주어야한다.\r\n\r\n```cpp\r\nint t1 = edges[i - 1].first, t2 = edges[i - 1].second;\r\nint p1 = getParent(t1);\r\nint p2 = getParent(t2);\r\nif (p1 == p2) {\r\n    // if point, memo it and break.\r\n    point = i;\r\n    break;\r\n}\r\nif (p1 < p2) {\r\n    parent[p2] = p1;\r\n}\r\nelse {\r\n    parent[p1] = p2;\r\n}\r\n```","title":"분리 집합 구현 시 주의 점","date":"$D2023-10-11T00:00:00.000Z","description":"분리집합의 구현에 관해서는 union-find 방식을 사용하여 구현할 수 있는데, 그 중 UNION 하는 과정에서 주의할 필요가 있다.","dateString":"Oct 11, 2023"}]}]}]]}],null]]},[null,["$","html",null,{"lang":"en","suppressHydrationWarning":false,"children":[["$","head",null,{"children":["$","script",null,{"type":"text/javascript","dangerouslySetInnerHTML":{"__html":"\n    let localTheme = localStorage.getItem(\"theme\");\n    if(!localTheme) {\n      localTheme = window.matchMedia(\"(prefers-color-scheme: dark)\").matches ? \"dark\" : \"light\";\n      localStorage.setItem(\"theme\", localTheme);\n    }\n    \n    const html = document.querySelector(\"html\");\n    html.dataset.theme = localTheme;"}}]}],["$","body",null,{"className":"__className_e3dc15 layout_layout__dCqca","children":["$","div",null,{"id":"layout_layout__dCqca","children":[["$","div",null,{"className":"SideMenu_wrap__S7Kks","children":[["$","$L11",null,{"className":"SideMenu_logoLink__h5lXm","href":"/","children":["$","span",null,{"className":"SideMenu_logoCharacter___HzC9","children":"Chayhan."}]}],["$","$L12",null,{"className":"SideMenu_pfp__Hne0u","width":130,"height":130,"src":"https://avatars.githubusercontent.com/u/65532873?v=4","alt":"profile-picture-error"}],["$","div",null,{"className":"SideMenu_title__9PGW3","children":"Chayhan’s blog"}],["$","div",null,{"className":"SideMenu_desc__hXAjA","children":"이 녀석에게 친추 줘서 무료로 훈수 주기"}],["$","div",null,{"className":"SideMenu_links__tV5ui","children":[["$","div",null,{"children":["$","$L11",null,{"href":"https://github.com/chayhan","children":"Github"}]}],["$","div",null,{"children":["$","$L11",null,{"href":"https://discord.gg/w8xnMDgcxA","children":"Discord"}]}],["$","div",null,{"children":["$","$L11",null,{"href":"https://solved.ac/profile/blu3fishez","children":"Solved.ac"}]}]]}]]}],["$","div",null,{"id":"layout_contentWrap__twyu_","children":[["$","div",null,{"id":"layout_content__jhh_K","children":[["$","div",null,{"id":"layout_article__X_X3Z","children":[["$","div",null,{"className":"nav-container","children":["$","$L13",null,{}]}],["$","div",null,{"id":"$undefined","children":["$","$L14",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L15",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":[["$","link","0",{"rel":"stylesheet","href":"/markdown-blog/_next/static/css/6faf9db9f4b4400b.css","precedence":"next","crossOrigin":""}]]}]}]]}],["$","div",null,{"className":"Toc_wrap__P1Agf","children":[["$","div",null,{"children":"최근 읽은 글"}],["$","hr",null,{}],["$","ul",null,{"children":["$","li",null,{"children":"현재 기능 개발 중"}]}]]}]]}],["$","footer",null,{"className":"Footer_footer__Gowxd undefined","children":["$","div",null,{"className":"Footer_footerWrap__EVpy3","children":[["$","p",null,{"className":"Footer_supportLog__zX5GZ","children":["Support me by following on",["$","a",null,{"href":"https://github.com/chayhan","children":[["$","$L12",null,{"className":"Footer_githubLogo__v_D4v","src":"https://raw.githubusercontent.com/chayhan/markdown-blog/main/public/github-icon.png","alt":"favicon","width":23,"height":23}],["$","span",null,{"style":{"textDecorationLine":"underline"},"children":"github"}]]}]]}],["$","p",null,{"className":"Footer_copyright__G_vwC","children":"© 2023 chayhan, Powered by github.io"}]]}]}]]}]]}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/markdown-blog/_next/static/css/1d5397ff1d0b753b.css","precedence":"next","crossOrigin":""}],["$","link","1",{"rel":"stylesheet","href":"/markdown-blog/_next/static/css/6d5e3c23a0d301f9.css","precedence":"next","crossOrigin":""}]],"$L16"]]]]
-16:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Main :: chayhan's Blog --"}],["$","meta","3",{"name":"description","content":"개발자 chayhan 의 블로그 입니다."}],["$","meta","4",{"property":"og:title","content":"chay의 깃허브 블로그"}],["$","meta","5",{"property":"og:description","content":"chayhan.github.io 블로그"}],["$","meta","6",{"property":"og:site_name","content":"chayhan's blog"}],["$","meta","7",{"property":"og:image","content":"https://raw.githubusercontent.com/chayhan/markdown-blog/main/public/ogimage.png"}],["$","meta","8",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","9",{"name":"twitter:title","content":"chay의 깃허브 블로그"}],["$","meta","10",{"name":"twitter:description","content":"chayhan.github.io 블로그"}],["$","meta","11",{"name":"twitter:image","content":"https://raw.githubusercontent.com/chayhan/markdown-blog/main/public/ogimage.png"}],["$","link","12",{"rel":"icon","href":"/markdown-blog/favicon.ico","type":"image/x-icon","sizes":"48x48"}]]
+> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!0:["S7_FijaP7EElJ87xhYXDl",[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",{"children":["__PAGE__",{},["$L1",["$","div",null,{"className":"page_mainWrap__G2_gf","children":[["$","div",null,{"className":"page_title__3jonF","children":"Posts"}],["$","div",null,{"className":"page_description__86bsR","children":"다양한 주제로 글을 씁니다."}],["$","div",null,{"className":"page_hr__LC6V_"}],["$","$2",null,{"fallback":"loading...","children":["$","$L3",null,{"articleList":[{"slug":"2023-12-30-linear-algebra-2","content":"$4","title":"[ 선형대수 ] 2. 행렬 대수","date":"$D2023-12-30T00:00:00.000Z","description":"선형 대수 독학하며 배운 정리 자료입니다.","dateString":"Dec 30, 2023"},{"slug":"2023-12-30-linear-algebra-1","content":"\r\n> 개인적으로 공부하면서 정리한 내용입니다. 독학으로 진행하다보니 특정부분은 비정확할 수 있습니다. 그런 부분이 있다면 의견 주시면 고치도록 하겠습니다.\r\n> \r\n\r\n### 행렬이 왜 생겨났나\r\n\r\n행렬은 연립방정식을 쉽게 풀기 위해 생겨난 겁니다. 근데 이 행렬을 통해 기하학에도 적용할 수 있는데, 이거는 나중에 설명하겠습니다.\r\n\r\n### 행렬의 정의\r\n\r\n행렬은 아래와 같이 표현되는 수들의 나열입니다.\r\n\r\n```\r\n  | 1열을 뜻합니다.\r\n  v\r\n| 1 1 1 | -> 1행을 뜻합니다.\r\n| 1 1 1 |\r\n| 1 1 1 |\r\n```\r\n\r\n### 일차방정식(선형방정식)\r\n\r\n보통 우리가  보는 일차방정식 (연립 포함) 은 행렬로 나타낼 수 있습니다.\r\n\r\n- 각 변수의 계수를 행렬의 특정 값에 넣어서 나타낸 행렬을 계수행렬이라고 합니다.\r\n- 계수 행렬과 등식에서 나타내는 상수 값을 같이 붙여서 행렬로 표현하면 이를 첨가행렬이라고도 합니다.\r\n\r\n### 기본 행 연산\r\n\r\n우리가 행할 수 있는 정의된 기초 행 연산을 이용해 여러가지 정리를 구할 수 있는데요.\r\n\r\n기본 행 연산의 가짓수는 3가지입니다.\r\n\r\n1. 한 행에 임의의 상수를 곱하여, 다른 행에 더한다.\r\n1. 두 행을 교체합니다.\r\n1. 하나의 행에 0이 아닌 상수를 곱합니다.\r\n\r\n해당 연산은 첨가행렬에서 사용 가능합니다.","title":"[ 선형대수 ] 1. 행렬","date":"$D2023-12-30T00:00:00.000Z","description":"선형 대수 독학하며 배운 정리 자료입니다.","dateString":"Dec 30, 2023"},{"slug":"2023-12-26-boj1006","content":"$5","title":"[ 백준 1006 ] 습격자 초라기 : C++ 풀이","date":"$D2023-12-26T00:00:00.000Z","description":"백준 1006번 문제 풀이 입니다.","dateString":"Dec 26, 2023"},{"slug":"2023-12-25-darkmode-flickering","content":"$6","title":"다크모드 테마 시 깜빡거리는 증상","date":"$D2023-12-25T00:00:00.000Z","description":"내가 시스템에서 설정한 테마 색이 먼저 적용이 되고, 그 다음에 다크 모드로 설정된 테마가 나중에 적용되는 현상","dateString":"Dec 25, 2023"},{"slug":"2023-11-16-boj2818","content":"$7","title":"[ 백준 2818 ] 숙제하기 싫을 때 : C++ 풀이","date":"$D2023-11-16T00:00:00.000Z","description":"백준 2818 풀이입니다.","dateString":"Nov 16, 2023"},{"slug":"2023-11-16-boj26087","content":"$8","title":"[ 백준 26087 ] 피보나치와 마지막 수열과 쿼리 : C++ 풀이","date":"$D2023-11-16T00:00:00.000Z","description":"백준 26087 풀이입니다.","dateString":"Nov 16, 2023"},{"slug":"2023-11-15-text-underline","content":"\r\ntext-underline의 상세한 조절이 가능합니다.\r\n\r\n## underline의 굵기 설정\r\n\r\n```css\r\ntext-decoration-thickness: 0;\r\n```\r\n\r\n## underline의 위치 조절\r\n\r\n```css\r\ntext-underline-offset: 5px;\r\n```\r\n\r\n참고할 수 있도록 게시함.\r\n\r\n> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!","title":"[ CSS ] text underline 의 높이 조절, 굵기 설정하기","date":"$D2023-11-15T00:00:00.000Z","description":"text-underline의 상세한 스타일을 조절할 수 있습니다.","dateString":"Nov 15, 2023"},{"slug":"2023-11-12-query-tree","content":"$9","title":"[ 백준 25402 ] 트리와 쿼리 : C++ 풀이","date":"$D2023-11-12T00:00:00.000Z","description":"트리의 특성을 이용한 연결그래프 탐색문제입니다.","dateString":"Nov 12, 2023"},{"slug":"2023-11-03-typescript-interface","content":"$a","title":"[ TS ] 타입스크립트에서 타이핑 하기 귀찮은데요 (Typescript as 키워드)","date":"$D2023-11-03T00:00:00.000Z","description":"TypeScript에서 as 키워드는 타입 단언(type assertion)을 사용하기 위한 것입니다.","dateString":"Nov 3, 2023"},{"slug":"2023-10-31-remove-event","content":"$b","title":"[ React ] 이벤트 탈착할 때 주의 사항","date":"$D2023-10-31T00:00:00.000Z","description":"드로우 온 웹 크롬 익스텐션 사이드 프로젝트 중에 생긴 문제입니다.","dateString":"Oct 31, 2023"},{"slug":"2023-10-25-boj17298","content":"$c","title":"[ 백준 17298 ] 오큰수 : C++ 풀이","date":"$D2023-10-25T00:00:00.000Z","description":"이분탐색도 생각해보고, 뒤에서부터 진행도 생각해봤는데 도저히 감이 잡히질 않아서 주제를 봤더니 스택문제였습니다.","dateString":"Oct 25, 2023"},{"slug":"2023-10-24-boj13330","content":"$d","title":"[ 백준 13330 ] 유사 팰린드롬 : C++ 풀이","date":"$D2023-10-24T00:00:00.000Z","description":"소스코드만 있습니다.","dateString":"Oct 24, 2023"},{"slug":"2023-10-23-boj3697","content":"$e","title":"[ 백준 3697 ] 정상 : C++ 풀이","date":"$D2023-10-23T00:00:00.000Z","description":"d만큼의 높이차가 존재하는 정상들은 모두 정상이다라고 생각을 해서 땅에서부터 그냥 bfs하면 되는것 아닌가 싶은데, 잘못된 방법이였습니다.","dateString":"Oct 23, 2023"},{"slug":"2023-10-21-next-permutation","content":"$f","title":"[ C++ ] 조합, 순열 을 next_permutation() 으로 순회하기","date":"$D2023-10-21T00:00:00.000Z","description":"알고리즘을 하다보면 저희가 모든 경우의 수를 뽑아서 봐야할 때가 있습니다.","dateString":"Oct 21, 2023"},{"slug":"2023-10-20-boj18809","content":"$10","title":"[ 백준 18809 ] Gaaaaarden : C++ 풀이","date":"$D2023-10-20T00:00:00.000Z","description":"소스코드만 있습니다.","dateString":"Oct 20, 2023"},{"slug":"2023-10-14-lis","content":"## 풀이\r\n\r\n풀이는 제 이전 블로그에서 확인 가능합니다.\r\n\r\n## [소스코드 : LIS 3](https://boj.kr/12783)\r\n\r\n```cpp\r\n#include<iostream>\r\nusing namespace std;\r\n\r\nint n, len;\r\n\r\nint arr[1000000];\r\nint lis[1000000];\r\n\r\nint main() {\r\n\tios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);\r\n\tcin >> n;\r\n\r\n\tfor (int i = 0; i < n; ++i) cin >> arr[i];\r\n\r\n\tlen = 1;\r\n\tlis[0] = arr[0];\r\n\t\r\n\tfor (int i = 1; i < n; ++i) {\r\n\t\tint l = 0;\r\n\t\tint h = len;\r\n\t\tint upper_bound = h;\r\n\r\n\t\twhile (l <= h) {\r\n\t\t\tint mid = (l + h) / 2;\r\n\t\t\tif (lis[mid] < arr[i]) {\r\n\t\t\t\tl = mid + 1;\r\n\t\t\t}\r\n\t\t\telse if (lis[mid] >= arr[i]) {\r\n\t\t\t\tupper_bound = mid;\r\n\t\t\t\th = mid - 1;\r\n\t\t\t}\r\n\t\t}\r\n\r\n\t\tlis[upper_bound] = arr[i];\r\n\t\tif (len == upper_bound) {\r\n\t\t\tlen += 1;\r\n\t\t}\r\n\r\n\t}\r\n\tcout << len;\r\n}\r\n```\r\n\r\n## 주의점\r\n\r\n### `upper bound`를 확실히 구할 것!\r\n\r\n해당 값을 제대로 구했는지 확인할 요소\r\n\r\n1. `while(lo < hi)` 가 아니라 `while(lo <= hi)` 인지\r\n\r\n```\r\n7\r\n4 5 6 1 2 3 4\r\n\r\n정답 : 4\r\n```\r\n\r\n> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!","title":"LIS 알고리즘 개념","date":"$D2023-10-14T00:00:00.000Z","description":"풀이는 제 이전 블로그에서 확인 가능합니다.","dateString":"Oct 14, 2023"},{"slug":"2023-10-12-nojekyll","content":"# `.nojekyll` 설정하기\r\n\r\n이거 때문에 하루를 날려먹었다.\r\n\r\n`gh-pages` 를 통해 호스팅하는 모든 페이지들은 `jekyll` 블로그 설정에 따라 호스팅 되는 경우가 많아, 깃허브에서\r\n자체적으로 `_next` 와 같은 디렉토리를 차단시켜버리는 경향이 있습니다.\r\n\r\n이를 막기위해서 gh-pages에 deploy할 branch의 루트폴더에 `.nojekyll` 이라는 이름의 파일을 두어 깃허브가\r\n해당 정적페이지는 제킬이 아님을 알려주어야 인식이 정상적으로 된다.\r\n\r\n> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!","title":"깃허브 페이지에서 _next/ 폴더에 접근할 수 없는 경우","date":"$D2023-10-12T00:00:00.000Z","description":".nojekyll 설정하기","dateString":"Oct 12, 2023"},{"slug":"2023-10-12-boj11401","content":"## 설명\r\n\r\n일단 이 문제를 풀기 위해선 `페르마의 소정리`와 `모듈러 역원`을 구하는 연산을 할줄 알아야한다.\r\n\r\n\r\n\r\n### 소스코드\r\n\r\n```cpp\r\n#include<iostream>\r\nusing namespace std;\r\n\r\nint n, r;\r\nint fact[4000001];\r\nconst long long MOD = 1000000007;\r\n\r\nlong long getFact(long long n) {\r\n\tif (n == 0) return 1;\r\n\tif (fact[n]) return fact[n];\r\n\treturn fact[n] = n * (long long)getFact(n - 1) % MOD;\r\n}\r\n\r\nlong long power(long long base, int exp) {\r\n\tif (!exp) return 1;\r\n\tlong long i = 1;\r\n\twhile (exp) {\r\n\t\tif (exp % 2) {\r\n\t\t\ti *= base;\r\n\t\t\ti %= MOD;\r\n\t\t\texp--;\r\n\t\t\tcontinue;\r\n\t\t}\r\n\t\tbase *= base;\r\n\t\tbase %= MOD;\r\n\t\texp /= 2;\r\n\t}\r\n\treturn i;\r\n}\r\n\r\nint main() {\r\n\tcin >> n >> r;\r\n\tlong long numer = getFact(n);\r\n\tlong long deno = getFact(r) * getFact(n - r) % MOD;\r\n\tdeno = power(deno, MOD - 2);\r\n\tnumer = numer * deno % MOD;\r\n\tcout << numer;\r\n}\r\n```\r\n\r\n> 보다 자세한 설명이 필요하신가요? `giscus`로 댓글을 남겨주시면 언제든지 토론이 가능합니다!","title":"[ 백준 11401 ] 이항 계수 3 : C++ 풀이","date":"$D2023-10-12T00:00:00.000Z","description":"일단 이 문제를 풀기 위해선 페르마의 소정리와 모듈러 역원을 구하는 연산을 할줄 알아야한다.","dateString":"Oct 12, 2023"},{"slug":"2023-10-11-next-js-blog","content":"$11","title":"[Next.js] 블로그 만들 때 생긴 에러 해결방안들 임시 메모","date":"$D2023-10-11T00:00:00.000Z","description":"이미지 가져오기, 동적 라우팅, 페이지 타이틀 변경 등","dateString":"Oct 11, 2023"},{"slug":"2023-10-11-hello-world","content":"\r\n# 제목1\r\n\r\n## 제목 2\r\n\r\n### 제목 3\r\n\r\n#### 제목 4\r\n\r\n> 인용 태그\r\n\r\n안녕하세요.\r\n\r\n`Code`\r\n\r\n```cpp\r\nprintf(\"code\");\r\n```\r\n\r\n[link](\"/\")\r\n\r\nanything else?\r\n\r\n블로그의 탄생을 축하하며.","title":"Hello, World!","date":"$D2023-10-11T00:00:00.000Z","description":"블로그의 탄생을 축하하며.","dateString":"Oct 11, 2023"},{"slug":"2023-10-11-disjoint-set","content":"분리집합의 구현에 관해서는 `union-find` 방식을 사용하여 구현할 수 있는데, 그 중 UNION 하는 과정에서 주의할 필요가 있다.\r\n\r\n문제를 풀다가 이번에도 같은 방식으로 틀려서 기록하게 되었다.\r\n\r\n```cpp\r\nparent[t1] = p2;\r\n```\r\n\r\n위와 같이 바꾸게 되면, t1의 부모까지 부모값이 p2로 갱신되지 않고 짤리므로 위와 같이 구현하면 안된다.\r\n\r\n따라서 아래와 같이 그냥 부모노드의 부모값을 바꿔주어야한다.\r\n\r\n```cpp\r\nint t1 = edges[i - 1].first, t2 = edges[i - 1].second;\r\nint p1 = getParent(t1);\r\nint p2 = getParent(t2);\r\nif (p1 == p2) {\r\n    // if point, memo it and break.\r\n    point = i;\r\n    break;\r\n}\r\nif (p1 < p2) {\r\n    parent[p2] = p1;\r\n}\r\nelse {\r\n    parent[p1] = p2;\r\n}\r\n```","title":"분리 집합 구현 시 주의 점","date":"$D2023-10-11T00:00:00.000Z","description":"분리집합의 구현에 관해서는 union-find 방식을 사용하여 구현할 수 있는데, 그 중 UNION 하는 과정에서 주의할 필요가 있다.","dateString":"Oct 11, 2023"}]}]}]]}],null]]},[null,["$","html",null,{"lang":"en","suppressHydrationWarning":false,"children":[["$","head",null,{"children":["$","script",null,{"type":"text/javascript","dangerouslySetInnerHTML":{"__html":"\n    let localTheme = localStorage.getItem(\"theme\");\n    if(!localTheme) {\n      localTheme = window.matchMedia(\"(prefers-color-scheme: dark)\").matches ? \"dark\" : \"light\";\n      localStorage.setItem(\"theme\", localTheme);\n    }\n    \n    const html = document.querySelector(\"html\");\n    html.dataset.theme = localTheme;"}}]}],["$","body",null,{"className":"__className_e3dc15 layout_layout__dCqca","children":["$","div",null,{"id":"layout_layout__dCqca","children":[["$","div",null,{"className":"SideMenu_wrap__S7Kks","children":[["$","$L12",null,{"className":"SideMenu_logoLink__h5lXm","href":"/","children":["$","span",null,{"className":"SideMenu_logoCharacter___HzC9","children":"Chayhan."}]}],["$","$L13",null,{"className":"SideMenu_pfp__Hne0u","width":130,"height":130,"src":"https://avatars.githubusercontent.com/u/65532873?v=4","alt":"profile-picture-error"}],["$","div",null,{"className":"SideMenu_title__9PGW3","children":"Chayhan’s blog"}],["$","div",null,{"className":"SideMenu_desc__hXAjA","children":"이 녀석에게 친추 줘서 무료로 훈수 주기"}],["$","div",null,{"className":"SideMenu_links__tV5ui","children":[["$","div",null,{"children":["$","$L12",null,{"href":"https://github.com/chayhan","children":"Github"}]}],["$","div",null,{"children":["$","$L12",null,{"href":"https://discord.gg/w8xnMDgcxA","children":"Discord"}]}],["$","div",null,{"children":["$","$L12",null,{"href":"https://solved.ac/profile/blu3fishez","children":"Solved.ac"}]}]]}]]}],["$","div",null,{"id":"layout_contentWrap__twyu_","children":[["$","div",null,{"id":"layout_content__jhh_K","children":[["$","div",null,{"id":"layout_article__X_X3Z","children":[["$","div",null,{"className":"nav-container","children":["$","$L14",null,{}]}],["$","div",null,{"id":"$undefined","children":["$","$L15",null,{"parallelRouterKey":"children","segmentPath":["children"],"loading":"$undefined","loadingStyles":"$undefined","loadingScripts":"$undefined","hasLoading":false,"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L16",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[],"styles":[["$","link","0",{"rel":"stylesheet","href":"/markdown-blog/_next/static/css/6faf9db9f4b4400b.css","precedence":"next","crossOrigin":""}]]}]}]]}],["$","div",null,{"className":"Toc_wrap__P1Agf","children":[["$","div",null,{"children":"최근 읽은 글"}],["$","hr",null,{}],["$","ul",null,{"children":["$","li",null,{"children":"현재 기능 개발 중"}]}]]}]]}],["$","footer",null,{"className":"Footer_footer__Gowxd undefined","children":["$","div",null,{"className":"Footer_footerWrap__EVpy3","children":[["$","p",null,{"className":"Footer_supportLog__zX5GZ","children":["Support me by following on",["$","a",null,{"href":"https://github.com/chayhan","children":[["$","$L13",null,{"className":"Footer_githubLogo__v_D4v","src":"https://raw.githubusercontent.com/chayhan/markdown-blog/main/public/github-icon.png","alt":"favicon","width":23,"height":23}],["$","span",null,{"style":{"textDecorationLine":"underline"},"children":"github"}]]}]]}],["$","p",null,{"className":"Footer_copyright__G_vwC","children":"© 2023 chayhan, Powered by github.io"}]]}]}]]}]]}]}]]}],null]],[[["$","link","0",{"rel":"stylesheet","href":"/markdown-blog/_next/static/css/1d5397ff1d0b753b.css","precedence":"next","crossOrigin":""}],["$","link","1",{"rel":"stylesheet","href":"/markdown-blog/_next/static/css/07aea9e1ee24fd6d.css","precedence":"next","crossOrigin":""}]],"$L17"]]]]
+17:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","1",{"charSet":"utf-8"}],["$","title","2",{"children":"Main :: chayhan's Blog --"}],["$","meta","3",{"name":"description","content":"개발자 chayhan 의 블로그 입니다."}],["$","meta","4",{"property":"og:title","content":"chay의 깃허브 블로그"}],["$","meta","5",{"property":"og:description","content":"chayhan.github.io 블로그"}],["$","meta","6",{"property":"og:site_name","content":"chayhan's blog"}],["$","meta","7",{"property":"og:image","content":"https://raw.githubusercontent.com/chayhan/markdown-blog/main/public/ogimage.png"}],["$","meta","8",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","9",{"name":"twitter:title","content":"chay의 깃허브 블로그"}],["$","meta","10",{"name":"twitter:description","content":"chayhan.github.io 블로그"}],["$","meta","11",{"name":"twitter:image","content":"https://raw.githubusercontent.com/chayhan/markdown-blog/main/public/ogimage.png"}],["$","link","12",{"rel":"icon","href":"/markdown-blog/favicon.ico","type":"image/x-icon","sizes":"48x48"}]]
 1:null
