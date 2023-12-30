@@ -13,6 +13,10 @@ import Image from "next/image";
 import path from "node:path";
 import { Metadata } from "next";
 
+import { Source_Code_Pro } from "next/font/google";
+
+const monofont = Source_Code_Pro({ subsets: ["latin", "latin-ext"] });
+
 interface StaticParams {
   slug: string;
 }
@@ -68,6 +72,11 @@ export default function SlugPage(params:SlugPageParams) {
                 height={height}
               />
             );
+          },
+          code: (props) => {
+            return <code className={`${monofont.className} ${props.className}`}>
+              {props.children}
+            </code>
           }
         }}
       >

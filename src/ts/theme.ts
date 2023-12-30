@@ -21,7 +21,7 @@ export function useTheme():[Theme, Dispatch<SetStateAction<Theme>>] {
     if(!theme) return;
     setVariables(theme);
     localStorage.setItem("theme", theme);
-    console.log("적용했따");
+    // console.log("적용했따");
   }, [theme]);
 
   return [theme, setTheme];
